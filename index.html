@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shantanu Kumar Portfolio</title>
+<meta name="description" content="Shantanu Kumar, AI-first Oracle NetSuite Technical Consultant in Gurugram with 4+ years: SuiteScript 2.x, Salesforce integration, India GST e-invoicing and UAE PINT AE e-invoicing, O2C and P2P automation.">
+<link rel="icon" href="photo.jpg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shantanu Kumar · AI-First NetSuite Consultant">
+<meta property="og:description" content="SuiteScript, integrations, India GST and UAE e-invoicing, O2C/P2P automation and AI agents with MCP and RAG.">
+<meta property="og:image" content="https://shaannetsuiteconsultant.github.io/photo.jpg">
+<meta property="og:url" content="https://shaannetsuiteconsultant.github.io/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;800&family=Red+Hat+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE  developer portfolio for hiring managers: confident, alive, every motion shows real work
+   IDEA   a live NetSuite account: code being written, records flowing through O2C and P2P, invoices clearing tax portals
+   PICTURE hero code editor that types itself; a process map with a travelling record; a live e-invoice console for India and UAE
+   COLOUR navy ground in both themes, teal for O2C, yellow for P2P, periwinkle for tax compliance, red for calls to action
+   TYPE   Red Hat Display 800 + Red Hat Text, JetBrains Mono for code and logs
+   LAYOUT hero = text left, editor right; full-width bands below; phone: stacked, routes turn vertical */
+:root{color-scheme:dark;--bg:#0b1433;--bg2:#0e1940;--panel:#121d45;--line:#26346b;--ink:#eef1fb;--mute:#aab3d6;--o2c:#4fc1c6;--p2p:#f7e463;--tax:#8b97ff;--acc:#e8452c;--ok:#5fd68a;--blue:#3b4fd8;--code:#070d24;--D:"Red Hat Display",system-ui,sans-serif;--M:"JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Red Hat Text",system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3,h4{font-family:var(--D);letter-spacing:-.02em;line-height:1.05;margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding-block:clamp(40px,5vw,80px);padding-inline:max(5vw,16px)}
+:focus-visible{outline:2px solid var(--p2p);outline-offset:3px}
+
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:22px;padding:12px max(5vw,16px)}
+nav b{font-family:var(--D);font-weight:800;font-size:18px;white-space:nowrap}
+nav b i{font-style:normal;color:var(--o2c)}
+.links{display:flex;gap:4px 18px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.links a{flex:none;text-decoration:none;color:var(--mute);font-weight:500;padding:6px 0;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.links a:hover{color:var(--ink)}
+.links a.on{color:var(--ink);border-color:var(--o2c)}
+#prog{position:absolute;left:0;bottom:-1px;height:3px;width:0;background:linear-gradient(90deg,var(--o2c),var(--p2p),var(--tax),var(--acc))}
+
+.hero{position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(520px circle at var(--mx,70%) var(--my,30%),color-mix(in srgb,var(--blue) 35%,transparent),transparent 70%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.loc{display:inline-flex;align-items:center;gap:8px;color:var(--mute);font-size:15px;margin-bottom:14px}
+.loc i{width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 var(--ok);animation:live 2s infinite}
+@keyframes live{70%{box-shadow:0 0 0 9px transparent}}
+.hero h1{font-size:clamp(42px,6vw,68px);font-weight:800}
+.role{font-family:var(--D);font-weight:700;font-size:clamp(20px,2.4vw,27px);margin:12px 0 16px;min-height:1.3em;color:var(--o2c)}
+.role .cur{display:inline-block;width:3px;height:1em;background:var(--o2c);vertical-align:-.12em;margin-left:3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.intro{color:var(--mute);font-size:17px;margin:0;max-width:60ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 20px;border-radius:8px;font-weight:600;text-decoration:none;border:1px solid var(--line);background:var(--panel);cursor:pointer;transition:transform .15s,border-color .15s}
+.btn:hover{transform:translateY(-2px);border-color:var(--ink)}
+.btn.main{background:var(--acc);border-color:var(--acc);color:#fff}
+.facts{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:4px 30px;margin-top:30px}
+.facts strong{display:block;font-family:var(--D);font-weight:800;font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.facts span{color:var(--mute);font-size:14px}
+
+@keyframes inl{from{opacity:0;transform:translateX(-6px)}}
+
+.strip{border-block:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:14px 0}
+.strip .run{display:flex;width:max-content;animation:run 50s linear infinite}
+.strip:hover .run{animation-play-state:paused}
+.strip span{font-family:var(--D);font-weight:700;font-size:19px;color:var(--mute);white-space:nowrap;padding-right:40px}
+.strip span i{font-style:normal;color:var(--c);margin-left:40px}
+@keyframes run{to{transform:translateX(-50%)}}
+
+.sec h2{font-size:clamp(30px,4vw,44px);margin-bottom:8px}
+.sec .lead{color:var(--mute);margin:0 0 26px;max-width:68ch}
+.alt{background:var(--bg2);border-block:1px solid var(--line)}
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;margin-bottom:22px}
+.head .lead{margin:0}
+.seg{display:flex;flex-wrap:wrap;gap:6px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:4px}
+.seg button{border:0;background:none;padding:0 14px;min-height:40px;border-radius:7px;cursor:pointer;color:var(--mute);font-weight:600;transition:background .2s,color .2s}
+.seg button.on{background:var(--ink);color:var(--bg)}
+
+/* AI assistant */
+.agent{background:var(--code);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -30px #000,0 0 0 1px color-mix(in srgb,var(--tax) 25%,transparent);display:flex;flex-direction:column}
+.ah{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line);background:#0a1230}
+.ah b{display:block;font-family:var(--D);font-size:16px;line-height:1.2}
+.ah small{display:block;color:var(--mute);font-size:13px}
+.live{width:10px;height:10px;border-radius:50%;background:var(--ok);flex:none;animation:live 2s infinite}
+.mode{margin-left:auto;font:600 12.5px var(--M);color:var(--tax);white-space:nowrap}
+.msgs{height:400px;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
+.m{max-width:88%;padding:10px 14px;border-radius:14px;font-size:15px;line-height:1.5;animation:inl .3s ease-out both}
+.m.u{align-self:flex-end;background:var(--blue);color:#fff;border-bottom-right-radius:4px}
+.m.a{align-self:flex-start;background:var(--panel);border:1px solid var(--line);border-bottom-left-radius:4px}
+.m.a table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13.5px}
+.m.a td{padding:5px 6px;border-top:1px solid var(--line)}
+.m.a td:last-child{text-align:right;white-space:nowrap;color:var(--o2c)}
+.m.a td.bad{color:#ff8a78}
+.tool{align-self:flex-start;display:flex;align-items:center;gap:9px;max-width:100%;font:12.5px var(--M);color:var(--mute);padding:6px 10px;border:1px dashed var(--line);border-radius:9px;animation:inl .3s ease-out both}
+.tool code{flex:none;color:var(--tax);font:600 12.5px var(--M);white-space:nowrap}
+.tool span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tool em{flex:none;font-style:normal;color:var(--ok);white-space:nowrap;margin-left:auto}
+.spin{width:12px;height:12px;flex:none;border-radius:50%;border:2px solid var(--tax);border-right-color:transparent;animation:rot .7s linear infinite}
+.tool.done .spin{animation:none;border-color:var(--ok);background:var(--ok)}
+@keyframes rot{to{transform:rotate(360deg)}}
+.dots{align-self:flex-start;display:flex;gap:5px;padding:12px 14px;background:var(--panel);border-radius:14px}
+.dots i{width:7px;height:7px;border-radius:50%;background:var(--mute);animation:bob 1s infinite}
+.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
+@keyframes bob{50%{transform:translateY(-5px);opacity:.5}}
+.sugg{display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px;border-top:1px solid var(--line);background:#0a1230;align-items:center}
+.sugg>span{color:var(--mute);font-size:13px}
+.sugg button{border:1px solid var(--line);background:var(--panel);border-radius:99px;padding:0 12px;min-height:36px;font-size:13.5px;cursor:pointer;color:var(--mute);transition:all .2s;text-align:left}
+.sugg button.on,.sugg button:hover{color:var(--ink);border-color:var(--tax);background:color-mix(in srgb,var(--tax) 18%,var(--panel))}
+#net{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+
+/* AI section */
+.ai{background:radial-gradient(900px 400px at 85% 0%,color-mix(in srgb,var(--tax) 18%,transparent),transparent 70%),var(--bg2);border-block:1px solid var(--line)}
+.graph{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:auto auto;gap:28px clamp(30px,4vw,60px);align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:clamp(20px,3vw,36px)}
+.graph svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.node{position:relative;z-index:1;background:var(--bg);border:2px solid var(--c);border-radius:14px;padding:14px;cursor:default;transition:transform .25s,box-shadow .25s,background .25s}
+.node b{display:block;font-family:var(--D);font-size:16px;line-height:1.2}
+.node small{display:block;color:var(--c);font:600 12px var(--M);margin-top:4px}
+.node.on,.node:hover{transform:translateY(-4px);box-shadow:0 0 0 6px color-mix(in srgb,var(--c) 22%,transparent);background:color-mix(in srgb,var(--c) 12%,var(--bg))}
+.n-q{grid-column:1;grid-row:1/3}.n-r{grid-column:2;grid-row:1/3}.n-m{grid-column:3;grid-row:1}.n-g{grid-column:3;grid-row:2}.n-v{grid-column:4;grid-row:1/3}.n-a{grid-column:5;grid-row:1/3}
+.gdesc{margin-top:16px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 16px;align-items:baseline;min-height:56px}
+.gdesc b{font-family:var(--D);font-size:19px;color:var(--c)}
+.gdesc p{margin:0;color:var(--mute)}
+.caps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}
+.cap{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;border-top:4px solid var(--c)}
+.cap h3{font-size:20px;margin-bottom:8px}
+.cap p{margin:0 0 12px;color:var(--mute);font-size:15px}
+
+/* photo */
+.me{display:flex;align-items:center;gap:clamp(18px,2.5vw,28px);margin-bottom:4px}
+.ava{position:relative;flex:none;width:clamp(112px,10vw,136px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;outline:none}
+.ava::before{content:"";position:absolute;inset:-6px;border-radius:50%;background:conic-gradient(from var(--a,0deg),var(--o2c),var(--p2p),var(--tax),var(--acc),var(--o2c));animation:spin 6s linear infinite}
+.ava::after{content:"";position:absolute;inset:-1px;border-radius:50%;background:var(--bg)}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes spin{to{--a:360deg}}
+.ava img{position:relative;z-index:1;width:calc(100% - 10px);height:calc(100% - 10px);border-radius:50%;object-fit:cover;object-position:50% 30%;transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.ava:hover img,.ava:focus-visible img{transform:scale(1.07) rotate(-3deg)}
+.orb{position:absolute;inset:-16px;border-radius:50%;z-index:2;pointer-events:none;animation:orbit 7s linear infinite}
+.orb::before{content:"";position:absolute;left:50%;top:0;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:var(--c);box-shadow:0 0 12px var(--c)}
+.o1{--c:var(--o2c)}.o2{--c:var(--p2p);animation-duration:11s;animation-direction:reverse;inset:-11px}.o3{--c:var(--acc);animation-duration:15s;animation-delay:-5s;inset:-20px}
+.o3::before{width:7px;height:7px;margin-left:-3.5px}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.hi{position:absolute;z-index:3;left:50%;top:-40px;margin-left:-70px;width:140px;text-align:center;background:var(--ink);color:var(--bg);font-weight:700;font-size:13px;padding:5px 11px;border-radius:12px;white-space:nowrap;opacity:0;transform:translateY(8px) scale(.8);transform-origin:50% 100%;transition:opacity .25s,transform .35s cubic-bezier(.3,1.6,.5,1);pointer-events:none}
+.ava:hover .hi,.ava:focus-visible .hi{opacity:1;transform:none}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{width:34px;height:34px;border-radius:50%;object-fit:cover;object-position:50% 30%;border:2px solid var(--o2c)}
+
+.me h1{font-size:clamp(36px,4vw,54px);text-wrap:balance}
+
+/* cursor */
+.cring,.cdot{position:fixed;left:0;top:0;z-index:50;pointer-events:none;border-radius:50%;opacity:0;transition:opacity .3s}
+.cring{width:34px;height:34px;margin:-17px 0 0 -17px;border:2px solid var(--o2c);transition:opacity .3s,width .25s,height .25s,margin .25s,border-color .25s,background .25s}
+.cdot{width:6px;height:6px;margin:-3px 0 0 -3px;background:var(--p2p)}
+body.cur-on .cring,body.cur-on .cdot{opacity:1}
+.cring.big{width:58px;height:58px;margin:-29px 0 0 -29px;border-color:var(--p2p);background:color-mix(in srgb,var(--p2p) 10%,transparent)}
+.cring.down{width:24px;height:24px;margin:-12px 0 0 -12px}
+#spark{position:fixed;inset:0;width:100%;height:100%;z-index:49;pointer-events:none}
+.tilt{transform-style:preserve-3d;will-change:transform}
+.chip:hover{animation:wob .45s ease}
+@keyframes wob{30%{transform:translateY(-3px) rotate(-3deg)}60%{transform:translateY(-2px) rotate(2deg)}}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(22px,4vw,48px);align-items:start}
+.about p{color:var(--mute);margin:0 0 14px;font-size:17px;max-width:62ch}
+.about p b{color:var(--ink);font-weight:600}
+.info{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:8px 22px}
+.info div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.info div:last-child{border:0}
+.info dt{color:var(--mute)}
+.info dd{margin:0;font-weight:600;text-align:right}
+.info dd.g{color:var(--ok)}
+.how{margin-top:28px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.how li{list-style:none;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:var(--panel);transition:border-color .4s,transform .4s,background .4s}
+.how li b{display:block;font-family:var(--D);font-size:16px;margin-bottom:4px}
+.how li span{color:var(--mute);font-size:14px;line-height:1.4;display:block}
+.how li.on{border-color:var(--o2c);background:color-mix(in srgb,var(--o2c) 12%,var(--panel));transform:translateY(-4px)}
+.how{padding:0;margin-bottom:0}
+
+/* process map */
+.map{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,3vw,32px)}
+.lane{margin-bottom:26px}
+.lane[hidden]{display:none}
+.lane h3{font-size:17px;display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.lane h3 i{width:14px;height:14px;border-radius:50%;background:var(--c)}
+.route{list-style:none;margin:0;padding:34px 0 0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:relative}
+.route::before{content:"";position:absolute;left:10%;right:10%;top:51px;height:6px;border-radius:3px;background:color-mix(in srgb,var(--c) 35%,transparent)}
+.route .fill{position:absolute;height:6px;border-radius:3px;background:var(--c);width:0;transition:width .9s ease}
+.st button{all:unset;box-sizing:border-box;display:block;width:100%;text-align:center;padding:0 6px 6px;cursor:pointer;border-radius:10px}
+.st button:focus-visible{outline:2px solid var(--p2p)}
+.dot{width:40px;height:40px;margin:0 auto 10px;border-radius:50%;background:var(--bg);border:6px solid var(--c);position:relative;z-index:1;display:grid;place-items:center;transition:transform .2s,box-shadow .3s}
+.dot::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--c)}
+.st button:hover .dot{transform:scale(1.12)}
+.st.cur .dot{box-shadow:0 0 0 8px color-mix(in srgb,var(--c) 25%,transparent)}
+.st.sel button{background:color-mix(in srgb,var(--c) 12%,transparent)}
+.st b{display:block;font-size:15px;line-height:1.25}
+.st small{display:block;color:var(--mute);font-size:13px;line-height:1.35;margin-top:4px}
+.tok{position:absolute;left:0;top:0;z-index:2;pointer-events:none;transition:transform .9s cubic-bezier(.5,0,.3,1)}
+.tok.jump{transition:none}
+.tok span{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);background:var(--c);color:var(--bg);font:600 12.5px var(--M);padding:2px 8px;border-radius:6px;white-space:nowrap}
+.tok span::after{content:"";position:absolute;left:50%;top:100%;margin-left:-5px;border:5px solid transparent;border-top-color:var(--c)}
+.detail{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 24px;align-items:center;border-top:1px solid var(--line);padding-top:20px}
+.detail h4{font-size:20px}
+.detail h4 i{font-style:normal;color:var(--c)}
+.detail p{margin:6px 0 0;color:var(--mute)}
+.detail .go{display:flex;flex-wrap:wrap;gap:8px;justify-content:end}
+.pill{border:1px solid var(--c);color:var(--c);background:none;border-radius:99px;padding:0 14px;min-height:40px;font-weight:600;cursor:pointer;transition:background .2s,color .2s;white-space:nowrap}
+.pill:hover{background:var(--c);color:var(--bg)}
+
+/* e-invoicing console */
+.ein{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:20px;align-items:stretch}
+.doc{background:#f6f7fb;color:#151a2e;border-radius:14px;padding:22px 24px;position:relative;overflow:hidden;font-size:14px;box-shadow:0 30px 60px -30px #000}
+.doc .dh{display:flex;justify-content:space-between;gap:12px;align-items:start;border-bottom:2px solid #151a2e;padding-bottom:12px;margin-bottom:12px}
+.doc h4{font-size:20px;color:#151a2e}
+.doc .dh small{display:block;color:#5a6180;font-size:13px}
+.doc .badge{font:600 12.5px var(--M);padding:3px 9px;border-radius:6px;background:#e3e6f2;color:#3a4160;white-space:nowrap;transition:background .3s,color .3s}
+.doc .badge.done{background:#1f8a4c;color:#fff}
+.doc .badge.err{background:#c62f1d;color:#fff}
+.parties{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:12px}
+.parties b{display:block;font-size:12.5px;color:#5a6180;font-weight:600}
+.parties span{display:block;font-weight:600}
+.parties code{font:12.5px var(--M);color:#3a4160;overflow-wrap:anywhere}
+.doc table{width:100%;border-collapse:collapse;font-size:13.5px}
+.doc th{text-align:left;color:#5a6180;font-weight:600;border-bottom:1px solid #cfd3e3;padding:6px 4px}
+.doc td{padding:6px 4px;border-bottom:1px solid #e3e6f2}
+.doc .n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.doc tfoot td{border:0;padding:3px 4px}
+.doc tfoot tr:last-child td{font-weight:800;font-size:15px;border-top:2px solid #151a2e;padding-top:6px}
+.irn{display:grid;grid-template-columns:minmax(0,1fr) auto 96px;gap:14px;align-items:center;margin-top:14px;padding-top:12px;border-top:1px dashed #cfd3e3}
+.irn b{display:block;font-size:12.5px;color:#5a6180}
+.irn code{display:block;font:12.5px var(--M);overflow-wrap:anywhere;margin-bottom:6px;color:#151a2e}
+.qr{width:96px;height:96px;background:#e3e6f2;border-radius:6px;display:grid;place-items:center;color:#8a90aa;font-size:12px;text-align:center}
+.qr svg{width:96px;height:96px;animation:pop .4s ease-out}
+@keyframes pop{from{transform:scale(.7);opacity:0}}
+.stamp{transform:rotate(-12deg) scale(1.4);opacity:0;border:3px solid #1f8a4c;color:#1f8a4c;font:800 15px var(--D);padding:6px 12px;border-radius:8px;text-align:center;line-height:1.2;transition:opacity .35s,transform .35s;pointer-events:none;background:#f6f7fbd9}
+.stamp.on{opacity:1;transform:rotate(-12deg) scale(1)}
+.side{display:flex;flex-direction:column;gap:14px}
+.stages{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;list-style:none;margin:0;padding:0}
+.stages li{position:relative;padding:12px 10px 10px;border-radius:10px;background:var(--panel);border:1px solid var(--line);font-size:14px;font-weight:600;line-height:1.25;color:var(--mute);transition:all .35s}
+.stages li::before{content:"";display:block;height:4px;border-radius:2px;background:var(--line);margin-bottom:8px;transition:background .35s}
+.stages li.on{color:var(--ink);border-color:var(--tax)}
+.stages li.on::before{background:var(--tax);animation:bar 1s ease-in-out infinite alternate}
+.stages li.done{color:var(--ink)}
+.stages li.done::before{background:var(--ok)}
+.stages li.err{border-color:var(--acc);color:var(--ink)}
+.stages li.err::before{background:var(--acc)}
+@keyframes bar{from{opacity:.45}}
+.con{background:var(--code);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;flex:1;min-height:300px;overflow:hidden}
+.con .ch{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 8px 8px 16px;border-bottom:1px solid var(--line);font:12.5px var(--M);color:var(--mute);background:#0a1230}
+.con .ch button{border:1px solid var(--line);background:var(--panel);border-radius:7px;min-height:36px;padding:0 12px;cursor:pointer;font:600 13px "Red Hat Text",sans-serif}
+.con .ch button:hover{border-color:var(--ink)}
+.log{flex:1;height:250px;overflow:auto;padding:12px 16px;font:13px/1.6 var(--M);margin:0}
+.log div{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;animation:inl .25s ease-out both}
+.log time{color:#4a5689}
+.log .ok{color:var(--ok)}.log .err{color:#ff7a66}.log .tx{color:var(--tax)}.log .in{color:var(--ink)}
+.note{color:var(--mute);font-size:13px;margin:12px 0 0}
+
+/* projects */
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .25s,border-color .25s,opacity .3s}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(380px circle at var(--x,50%) var(--y,0%),color-mix(in srgb,var(--c) 14%,transparent),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover{transform:translateY(-4px);border-color:var(--c)}
+.card:hover::before{opacity:1}
+.card.dim{opacity:.22;transform:scale(.98)}
+.card.flash{animation:flash 1.4s ease-out}
+@keyframes flash{0%,40%{border-color:var(--c);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 40%,transparent)}}
+.card .k{display:flex;justify-content:space-between;gap:12px;align-items:start;margin-bottom:12px}
+.card h3{font-size:22px}
+.card .lane-l{font-size:13px;font-weight:600;color:var(--c);white-space:nowrap;border:1px solid var(--c);border-radius:99px;padding:1px 10px}
+.card dl{margin:0;display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:8px 14px;font-size:15px;position:relative}
+.card dt{color:var(--mute);font-weight:600}
+.card dd{margin:0}
+.card ul{margin:0;padding-left:18px}
+.card .res{font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:16px;position:relative}
+.tag{font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:color-mix(in srgb,var(--c) 18%,transparent);color:var(--c);white-space:nowrap}
+
+/* experience */
+.tl{position:relative;display:grid;gap:22px;padding-left:34px}
+.tl::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:4px;border-radius:2px;background:linear-gradient(var(--o2c),var(--tax),var(--p2p))}
+.job{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.job::before{content:"";position:absolute;left:-31px;top:26px;width:18px;height:18px;border-radius:50%;background:var(--bg);border:4px solid var(--c)}
+.job.now::after{content:"";position:absolute;left:-35px;top:22px;width:26px;height:26px;border-radius:50%;border:2px solid var(--c);animation:ping 2s ease-out infinite}
+@keyframes ping{from{transform:scale(.7);opacity:1}to{transform:scale(1.6);opacity:0}}
+.job .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;align-items:baseline}
+.job h3{font-size:22px}
+.mini{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.job.sm p:last-child{margin:0;color:var(--mute);font-size:15px}
+.job.sm h3{font-size:19px}
+.mini .job:nth-child(2)::before{display:none}
+.job .when{color:var(--c);font-weight:600;font-size:15px;white-space:nowrap}
+.job .org{color:var(--mute);margin:4px 0 12px}
+.job ul{margin:0;padding-left:18px;columns:2;column-gap:32px}
+.job li{margin-bottom:6px;break-inside:avoid}
+
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.sk{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+.sk h3{font-size:17px;margin-bottom:12px;color:var(--c)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:4px 10px;font-size:14px;transition:border-color .2s,color .2s,transform .2s}
+.chip:hover{border-color:var(--c);color:var(--c);transform:translateY(-2px)}
+
+.certs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;list-style:none;padding:0;margin:0}
+.certs li{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:10px;padding:14px 16px;display:flex;justify-content:space-between;gap:12px;transition:transform .2s}
+.certs li:hover{transform:translateX(4px)}
+.certs span{color:var(--mute);font-size:14px;white-space:nowrap}
+.eduw{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px}
+.edu{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+.edu b{font-family:var(--D);font-size:19px}
+.edu span{color:var(--mute)}
+
+footer{background:var(--acc);color:#fff}
+footer h2{font-size:clamp(32px,4.5vw,48px);max-width:18ch}
+footer p{max-width:60ch;margin:12px 0 22px;font-size:17px}
+footer .row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+footer .row div{background:rgba(0,0,0,.16);border-radius:10px;padding:14px 16px}
+footer small{display:block;opacity:.85;font-size:13px}
+footer a{font-weight:600;overflow-wrap:anywhere}
+footer .btn{background:#fff;color:var(--acc);border-color:#fff;margin-bottom:22px}
+.fine{margin-top:28px;font-size:13px;opacity:.9;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px}
+
+@media(max-width:960px){.caps{grid-template-columns:minmax(0,1fr)}.graph{grid-template-columns:repeat(3,minmax(0,1fr))}.n-q{grid-column:1;grid-row:1}.n-r{grid-column:2;grid-row:1}.n-m{grid-column:3;grid-row:1}.n-g{grid-column:3;grid-row:2}.n-v{grid-column:2;grid-row:2}.n-a{grid-column:1;grid-row:2}.eduw{grid-template-columns:minmax(0,1fr)}.hero .wrap,.about,.ein{grid-template-columns:minmax(0,1fr)}.cards{grid-template-columns:minmax(0,1fr)}.skills,.certs,.how{grid-template-columns:repeat(2,minmax(0,1fr))}footer .row{grid-template-columns:repeat(2,minmax(0,1fr))}.job ul{columns:1}}
+@media(max-width:640px){
+.msgs{height:360px}.m{max-width:94%}
+.graph{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 18px}.n-q{grid-column:1/3;grid-row:1}.n-r{grid-column:1/3;grid-row:2}.n-m{grid-column:1;grid-row:3}.n-g{grid-column:2;grid-row:3}.n-v{grid-column:1/3;grid-row:4}.n-a{grid-column:1/3;grid-row:5}.gdesc{grid-template-columns:minmax(0,1fr)}
+.mini{grid-template-columns:minmax(0,1fr)}
+.brand{display:none}
+.me{flex-direction:column;align-items:flex-start;margin-top:30px}.me h1{font-size:42px}.links{margin-left:0}
+.role{min-height:2.6em}
+.route{grid-template-columns:minmax(0,1fr);gap:8px;padding-top:0}
+.route::before{left:21px;right:auto;top:24px;bottom:24px;width:6px;height:auto}
+.route .fill{transition:height .9s ease}
+.st button{display:grid;grid-template-columns:40px minmax(0,1fr);gap:0 14px;text-align:left;padding:4px}
+.dot{margin:0;grid-row:span 2}
+.tok span{display:none}
+.detail{grid-template-columns:minmax(0,1fr)}.detail .go{justify-content:start}
+.skills,.certs,footer .row,.how{grid-template-columns:minmax(0,1fr)}
+.stages{grid-template-columns:repeat(2,minmax(0,1fr))}
+.facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 12px}.facts strong{font-size:32px}
+.card dl{grid-template-columns:minmax(0,1fr);gap:2px}.card dd{margin-bottom:8px}
+.tl{padding-left:26px}.tl::before{left:7px}.job::before{left:-27px}.job.now::after{left:-31px}
+.doc{padding:18px 16px}.parties{grid-template-columns:minmax(0,1fr)}.irn{grid-template-columns:minmax(0,1fr) 96px}.stamp{grid-column:1;grid-row:2;justify-self:start}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a class="brand" href="#top"><img src="photo.jpg" alt="" width="34" height="34"><b>Shantanu<i>.</i></b></a><div class="links"><a href="#about">About</a><a href="#ai">AI</a><a href="#flow">Process map</a><a href="#einvoice">E-invoicing</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#certs">Certifications</a><a href="#contact">Contact</a></div></div><div id="prog"></div></nav>
+
+<header class="band hero" id="top"><canvas id="net" aria-hidden="true"></canvas><div class="wrap">
+  <div>
+    <div class="me">
+      <div class="ava" id="ava" tabindex="0" aria-label="Photo of Shantanu Kumar">
+        <span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span>
+        <img src="photo.jpg" alt="Shantanu Kumar" width="180" height="180">
+        <span class="hi">Let's talk NetSuite</span>
+      </div>
+      <div>
+        <span class="loc"><i></i>Gurugram, India · open to on-site, hybrid and remote roles</span>
+        <h1>Shantanu Kumar</h1>
+      </div>
+    </div>
+    <p class="role" aria-label="AI-First NetSuite Consultant"><span id="role">AI-First NetSuite Consultant</span><span class="cur"></span></p>
+    <p class="intro">AI-first NetSuite consultant. I build SuiteScript customizations and integrations for Order-to-Cash, Procure-to-Pay and tax compliance, including India GST e-invoicing and UAE e-invoicing, Salesforce sync, data migrations and AI tools that use MCP and RAG.</p>
+    <div class="cta">
+      <a class="btn main" href="mailto:Shaan2000.kr@gmail.com?subject=Opportunity%20for%20NetSuite%20Technical%20Consultant">Hire me</a>
+      <a class="btn" href="#ai">How I use AI</a>
+      <a class="btn" href="https://www.linkedin.com/in/shantanu-kumar-netsuite">LinkedIn</a>
+      <a class="btn" href="https://github.com/ShaanNetsuiteConsultant">GitHub</a>
+    </div>
+    <div class="facts">
+      <div><strong data-n="4" data-s="+">4+</strong><span>years on NetSuite</span></div>
+      <div><strong data-n="11">11</strong><span>certifications</span></div>
+      <div><strong data-n="7">7</strong><span>production projects</span></div>
+      <div><strong data-n="4.5" data-s="K">4.5K</strong><span>LinkedIn followers</span></div>
+    </div>
+  </div>
+  <div class="agent" id="agent">
+    <div class="ah"><span class="live"></span><div><b>NetSuite AI assistant</b><small>Claude · NetSuite MCP · read-only role</small></div><span class="mode" id="amode">listening</span></div>
+    <div class="msgs" id="msgs" aria-live="polite"></div>
+    <div class="sugg" id="sugg"></div>
+  </div>
+</div></header>
+
+<div class="strip" aria-hidden="true"><div class="run" id="strip"></div></div>
+
+<section class="band sec" id="about"><div class="wrap">
+  <div class="about">
+    <div>
+      <h2>I speak both finance and SuiteScript</h2>
+      <p style="margin-top:18px">I have spent <b>4+ years</b> on Oracle NetSuite, starting in support and implementation and now working as an Associate Consultant at <b>Rostan Technologies</b>. I sit between finance teams and code. I turn a BRD into a solution design, build it in SuiteScript 2.x, deploy it with SDF, and stay with it through UAT and go-live.</p>
+      <p>Most of my work removes manual steps from <b>O2C and P2P</b> and keeps companies <b>tax compliant</b>. That includes India GST e-invoicing and returns through Taxilla, UAE e-invoicing in the PINT AE format, Salesforce to NetSuite order sync and end-to-end <b>data migrations</b>.</p>
+      <p>I also build <b>AI-based tools</b> with RAG, MCP, LangChain and LangGraph to automate workflows and analyse ERP data. I mentor junior developers and work with clients across time zones.</p>
+    </div>
+    <dl class="info">
+      <div><dt>Current role</dt><dd>NetSuite Associate Consultant</dd></div>
+      <div><dt>Company</dt><dd>Rostan Technologies</dd></div>
+      <div><dt>Experience</dt><dd>4+ years</dd></div>
+      <div><dt>Certifications</dt><dd>11, incl. 4 Oracle NetSuite</dd></div>
+      <div><dt>Education</dt><dd>MCA, Galgotias University</dd></div>
+      <div><dt>Location</dt><dd>Gurugram, Haryana</dd></div>
+      <div><dt>Work mode</dt><dd>On-site · Hybrid · Remote</dd></div>
+      <div><dt>Languages</dt><dd>English, Hindi</dd></div>
+      <div><dt>Availability</dt><dd class="g">Open to new roles</dd></div>
+    </dl>
+  </div>
+  <ol class="how" id="how">
+    <li><b>Requirements</b><span>Workshops with finance, BRD and fit-gap</span></li>
+    <li><b>Solution design</b><span>Technical design, POC, data mapping</span></li>
+    <li><b>Build and deploy</b><span>SuiteScript 2.x, workflows, SDF releases</span></li>
+    <li><b>UAT and support</b><span>Testing, go-live, training, production fixes</span></li>
+  </ol>
+</div></section>
+
+<section class="band sec ai" id="ai"><div class="wrap">
+  <div class="head">
+    <div><h2>AI-first NetSuite</h2><p class="lead">I build AI agents that work with NetSuite data and documents, using MCP, RAG, LangChain and LangGraph. Point at any step to see what it does.</p></div>
+  </div>
+  <div class="graph" id="graph">
+    <svg id="gsvg" aria-hidden="true"></svg>
+    <div class="node n-q" data-k="q" style="--c:var(--ink)"><b>Question</b><small>plain English</small></div>
+    <div class="node n-r" data-k="r" style="--c:var(--tax)"><b>Agent router</b><small>LangGraph</small></div>
+    <div class="node n-m" data-k="m" style="--c:var(--o2c)"><b>NetSuite tools</b><small>MCP · SuiteQL</small></div>
+    <div class="node n-g" data-k="g" style="--c:var(--p2p)"><b>Knowledge</b><small>RAG · docs</small></div>
+    <div class="node n-v" data-k="v" style="--c:var(--acc)"><b>Checks</b><small>role · approvals</small></div>
+    <div class="node n-a" data-k="a" style="--c:var(--ok)"><b>Answer or action</b><small>with sources</small></div>
+  </div>
+  <div class="gdesc" id="gdesc"></div>
+  <div class="caps">
+    <article class="cap" style="--c:var(--o2c)"><h3>Ask NetSuite in plain English</h3><p>Agents connect to live NetSuite through MCP. They read records, run SuiteQL and saved searches, and stay inside the permissions of the user's role.</p><div class="tags"><span class="tag">MCP</span><span class="tag">SuiteQL</span><span class="tag">OAuth 2.0</span></div></article>
+    <article class="cap" style="--c:var(--p2p)"><h3>Answers grounded in your documents</h3><p>RAG pipelines search SOPs, BRDs and tax rules, so answers about GST, billing or approvals follow how the business actually works.</p><div class="tags"><span class="tag">RAG</span><span class="tag">LangChain</span><span class="tag">Embeddings</span></div></article>
+    <article class="cap" style="--c:var(--tax)"><h3>Agents that do the repeat work</h3><p>LangGraph agents chain the steps of routine ERP tasks and analysis, and stop for a person to approve anything that changes data.</p><div class="tags"><span class="tag">LangGraph</span><span class="tag">Claude</span><span class="tag">Automation</span></div></article>
+  </div>
+</div></section>
+
+<section class="band sec alt" id="flow"><div class="wrap">
+  <div class="head">
+    <div><h2>Where my code runs in the business</h2><p class="lead">Every station is a step I have automated in a live NetSuite account. Watch a record move through, or point at any station.</p></div>
+    <div class="seg" id="laneSeg"><button data-v="both" class="on">Both cycles</button><button data-v="o2c">Order to Cash</button><button data-v="p2p">Procure to Pay</button></div>
+  </div>
+  <div class="map">
+    <div id="lanes"></div>
+    <div class="detail" id="detail"></div>
+  </div>
+</div></section>
+
+<section class="band sec" id="einvoice"><div class="wrap">
+  <div class="head">
+    <div><h2>E-invoicing in two countries</h2><p class="lead">I have integrated NetSuite with India's GST e-invoicing system and with the UAE e-invoicing network. Point at a country to watch an invoice clear, including the failure and retry path.</p></div>
+    <div class="seg" id="einSeg"><button data-v="in" class="on">India GST</button><button data-v="ae">UAE</button></div>
+  </div>
+  <div class="ein">
+    <article class="doc" id="doc" aria-live="polite"></article>
+    <div class="side">
+      <ol class="stages" id="stages"></ol>
+      <div class="con">
+        <div class="ch"><span id="conTitle">netsuite → taxilla → IRP</span><button type="button" id="replay">Replay</button></div>
+        <div class="log" id="log"></div>
+      </div>
+    </div>
+  </div>
+  <p class="note">Simulated run with sample data. The flow and status codes match the integrations I built.</p>
+</div></section>
+
+<section class="band sec alt" id="projects"><div class="wrap">
+  <div class="head">
+    <div><h2>Selected projects</h2><p class="lead">Production work from client accounts, including Kanex Fire. Each one replaced a manual step, a paid license or a compliance risk with something that leaves an audit trail.</p></div>
+    <div class="seg" id="projSeg"><button data-v="all" class="on">All</button><button data-v="tax">E-invoicing</button><button data-v="o2c">O2C</button><button data-v="p2p">P2P</button><button data-v="int">Integrations</button><button data-v="impl">Implementation</button><button data-v="ai">AI</button></div>
+  </div>
+  <div class="cards" id="cards"></div>
+</div></section>
+
+<section class="band sec" id="experience"><div class="wrap">
+  <h2>Experience</h2>
+  <p class="lead">4+ years in client-facing, techno-functional NetSuite roles covering requirements, solution design, build, UAT and production support.</p>
+  <div class="tl">
+    <article class="job now" style="--c:var(--o2c)">
+      <div class="top"><h3>NetSuite Associate Consultant</h3><span class="when">Jun 2024 to present</span></div>
+      <p class="org">ROSTAN Technologies Pvt. Ltd. · Gurugram · Hybrid</p>
+      <ul>
+        <li>Implemented the Taxilla GST integration for inward and outward transactions, with automated month-end processing and reconciliation reporting.</li>
+        <li>Led end-to-end data migrations: cleansing, validation, transformation, CSV imports and reconciliation.</li>
+        <li>Built UAE e-invoicing from NetSuite in the PINT AE format through an Accredited Service Provider.</li>
+        <li>Built the Salesforce to NetSuite O2C integration with RESTlets and Map/Reduce.</li>
+        <li>Delivered a login-free email PO approval system and a custom procurement module.</li>
+        <li>Designed a custom-record error logging framework for developers and support.</li>
+        <li>Integrated NetSuite with third-party platforms over REST and SOAP APIs.</li>
+        <li>Built dashboards, saved searches and KPIs for real-time business insight.</li>
+        <li>Led root cause analysis on production issues, cutting recurring support incidents.</li>
+        <li>Build AI-based solutions with RAG, MCP, LangChain and LangGraph.</li>
+        <li>Mentor junior developers and work with clients across time zones.</li>
+      </ul>
+    </article>
+    <article class="job" style="--c:var(--p2p)">
+      <div class="top"><h3>Software Engineer, NetSuite Developer</h3><span class="when">Nov 2022 to Nov 2023</span></div>
+      <p class="org">Innovative Digitech Services · Noida · On-site · NetSuite with Salesforce Sales Cloud integration</p>
+      <ul>
+        <li>Wrote User Event scripts that sort billing data into qualifying and non-qualifying categories.</li>
+        <li>Built Map/Reduce scripts to create invoices and vendor bills at high volume.</li>
+        <li>Handled short payments with credit and debit Journal Entries.</li>
+        <li>Customised invoice PDFs with FreeMarker.</li>
+        <li>Configured O2C and P2P approval workflows from BRDs.</li>
+        <li>Supported SuiteScript 1.0 code and deployed with SDF.</li>
+      </ul>
+    </article>
+    <div class="mini">
+      <article class="job sm" style="--c:var(--tax)"><div class="top"><h3>Process Mining Intern</h3><span class="when">Feb to Apr 2023</span></div><p class="org">Celonis · Remote</p><p>Process mining and business process improvement on the Celonis platform.</p></article>
+      <article class="job sm" style="--c:var(--acc)"><div class="top"><h3>JavaScript Developer Intern</h3><span class="when">Nov 2022 to Jan 2023</span></div><p class="org">EduSkills Foundation (AICTE) · Remote</p><p>Data extraction and cleansing, data systems and KPIs for trend analysis.</p></article>
+    </div>
+  </div>
+</div></section>
+
+<section class="band sec alt" id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <p class="lead">The NetSuite platform end to end, plus the integration, tax and finance knowledge to make it fit the business.</p>
+  <div class="skills" id="skillgrid"></div>
+</div></section>
+
+<section class="band sec" id="certs"><div class="wrap">
+  <h2>Certifications, education and research</h2>
+  <p class="lead">Oracle NetSuite, Oracle Academy, Anthropic and Celigo credentials.</p>
+  <ul class="certs" id="certlist"></ul>
+  <div class="eduw">
+    <div class="edu"><div><b>Master of Computer Applications</b><br><span>Computer Science · Galgotias University, Greater Noida · CGPA 8.16</span></div><span>2021 to 2023</span></div>
+    <div class="edu"><div><b>Combination of Blockchain and AI in E-Health System</b><br><span>Research paper · International Research Journal of Modernization in Engineering, Technology and Science</span></div><span>Jul 2022</span></div>
+  </div>
+</div></section>
+
+<footer class="band" id="contact"><div class="wrap">
+  <h2>Hiring a NetSuite developer?</h2>
+  <p>I am open to on-site, hybrid and remote roles, in India or abroad. Email me and I will reply within a day.</p>
+  <button class="btn" id="copy" type="button">Copy email address</button>
+  <div class="row">
+    <div><small>Email</small><a href="mailto:Shaan2000.kr@gmail.com">Shaan2000.kr@gmail.com</a></div>
+    <div><small>Phone</small><a href="tel:+916204239829">+91 62042 39829</a></div>
+    <div><small>LinkedIn · 4.5K followers</small><a href="https://www.linkedin.com/in/shantanu-kumar-netsuite">shantanu-kumar-netsuite</a></div>
+    <div><small>GitHub</small><a href="https://github.com/ShaanNetsuiteConsultant">ShaanNetsuiteConsultant</a></div>
+  </div>
+  <div class="fine"><span>The AI assistant chat and the e-invoicing console are illustrative, with sample data · © 2026 Shantanu Kumar</span><a href="#top">Back to top ↑</a></div>
+</div></footer>
+
+<div class="cring" id="cring" aria-hidden="true"></div><div class="cdot" id="cdot" aria-hidden="true"></div><canvas id="spark" aria-hidden="true"></canvas>
+<script>
+{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const canHover=matchMedia("(hover:hover) and (pointer:fine)").matches;
+/* hover does the work on desktop, tap still works on touch screens */
+const onHover=(root,sel,fn,delay=120)=>{let t=null,last=null;
+  root.addEventListener("click",e=>{const el=e.target.closest(sel);if(el&&root.contains(el)){clearTimeout(t);last=el;fn(el)}});
+  if(!canHover)return;
+  root.addEventListener("pointerover",e=>{const el=e.target.closest(sel);if(!el||!root.contains(el)||el===last)return;clearTimeout(t);t=setTimeout(()=>{last=el;fn(el)},delay)});
+  root.addEventListener("pointerleave",()=>{clearTimeout(t);last=null})};
+
+/* ---------- data ---------- */
+const PJ={o2c:{n:"Salesforce O2C",id:"p-o2c"},app:{n:"Email approval",id:"p-app"},proc:{n:"Procurement module",id:"p-proc"},log:{n:"Error logging",id:"p-log"},bill:{n:"Billing automation",id:"experience"},inin:{n:"India e-invoicing",id:"p-in"},inae:{n:"UAE e-invoicing",id:"p-ae"}};
+const lanes=[
+  {k:"o2c",name:"Order to Cash",c:"var(--o2c)",st:[
+    {t:"Opportunity",s:"Pulled from Salesforce",doc:"OPP-2291",d:"A RESTlet receives Salesforce Opportunities over OAuth 2.0 and queues them for processing.",p:["o2c"]},
+    {t:"Sales Order",s:"RESTlet + Map/Reduce",doc:"SO-1042",d:"Map/Reduce creates the Sales Order, matching existing customers and items so no duplicates are made. Failures land in the error log.",p:["o2c","log"]},
+    {t:"Fulfillment",s:"Linked to the sales record",doc:"IF-0388",d:"Fulfillment is linked back to the original sales data, so sales can see delivery status without asking finance.",p:["o2c"]},
+    {t:"Invoice",s:"E-invoiced in India and UAE",doc:"INV-7710",d:"Invoices are created at volume, then cleared with India's IRP through Taxilla or sent as PINT AE to a UAE Accredited Service Provider before they reach the customer.",p:["inin","inae","bill"]},
+    {t:"Payment",s:"Short-pay adjustments",doc:"PMT-0215",d:"Short payments are settled with automated credit and debit Journal Entries.",p:["bill"]}]},
+  {k:"p2p",name:"Procure to Pay",c:"var(--p2p)",st:[
+    {t:"Requisition",s:"Custom PR module",doc:"PR-0560",d:"Requesters raise and edit purchase requests in a Suitelet app, without a full NetSuite license.",p:["proc"]},
+    {t:"Approval",s:"Email links, multi-level",doc:"APR-0560",d:"Approvers get a one-time, expiring link signed with N/crypto. Approval levels follow financial thresholds.",p:["app","proc"]},
+    {t:"Purchase Order",s:"Created on approval",doc:"PO-3127",d:"The PO is created automatically once every level approves, and the PDF goes out by email.",p:["proc","app"]},
+    {t:"Item Receipt",s:"Converted from the PO",doc:"IR-0904",d:"Receipts are transformed from the PO automatically, keeping quantities and audit links intact.",p:["proc"]},
+    {t:"Vendor Bill",s:"Matched to GSTR-2B",doc:"VB-2218",d:"The vendor bill is generated as the last step, and purchase data is reconciled against GSTR-2B through Taxilla for input tax credit.",p:["proc","inin"]}]}
+];
+const projects=[
+  {id:"p-in",f:["tax","int"],l:"India · GST",c:"var(--tax)",t:"India GST e-invoicing and returns through Taxilla",
+   p:"Every B2B invoice needs an IRN and a signed QR code from the government's Invoice Registration Portal, and GST returns need clean data from NetSuite.",
+   b:["Taxilla GST integration for both outward (sales) and inward (purchase) transactions","E-invoices sent to the IRP through Taxilla, with IRN, acknowledgement number and signed QR written back and printed on the Advanced PDF","Automated month-end processing, with a manual push option for one-off transactions","Reconciliation reporting against GSTR and GSTR-2B, with failed submissions logged and retried"],
+   r:"GST compliance runs from inside NetSuite, with no re-entry on the government portal and month-end handled automatically.",
+   k:["SuiteScript 2.1","N/https","Taxilla","IRN / QR","GSTR-2B","SuiteTax"]},
+  {id:"p-ae",f:["tax","int"],l:"UAE · VAT",c:"var(--tax)",t:"UAE e-invoicing in the PINT AE format",
+   p:"The UAE mandate requires invoices as structured PINT AE data, exchanged through an Accredited Service Provider (ASP) and reported to the FTA.",
+   b:["Mapping of NetSuite invoice, TRN and VAT data to the PINT AE mandatory fields","Checks on TRN, tax category and totals before anything is sent","Integration that sends invoices to the ASP and stores the returned status on the transaction","Rejected invoices logged, corrected and resent from NetSuite"],
+   r:"UAE invoices are generated, sent and tracked from inside NetSuite, ready for the mandatory rollout.",
+   k:["SuiteScript 2.1","PINT AE / UBL XML","Peppol ASP","REST APIs","Multi-subsidiary"]},
+  {id:"p-kanex",f:["impl","o2c","p2p"],l:"Implementation",c:"var(--p2p)",t:"Kanex Fire: NetSuite implementation and data migration",
+   p:"A fire protection equipment supplier needed NetSuite set up around its own transaction flows, with clean data moved over from legacy systems.",
+   b:["Customized standard records, workflows and forms to fit the client's processes","Ran the full data migration: cleansing, validation, transformation, CSV imports and post-migration reconciliation","Configured transaction flows and custom record types for sales, purchasing and inventory","Also delivered the Taxilla GST integration and ongoing enhancements (Jun 2024 to present)"],
+   r:"A live NetSuite account with migrated data that reconciles, supported through post-go-live changes.",
+   k:["Implementation","Data Migration","CSV Import","SuiteFlow","Custom Records","Inventory"]},
+  {id:"p-ai",f:["ai","int"],l:"AI",c:"var(--acc)",t:"AI-based ERP automation with RAG and MCP",
+   p:"Finance and ERP teams spend hours pulling NetSuite data together to answer routine questions and run repeat tasks.",
+   b:["AI solutions built with RAG, MCP, LangChain and LangGraph","Workflows that automate routine ERP steps and help analyse NetSuite data","Grounded in Oracle NetSuite AI Foundations and Anthropic Claude 101 training"],
+   r:"Faster answers from ERP data and fewer manual steps for repetitive work.",
+   k:["MCP","RAG","LangChain","LangGraph","Claude"]},
+  {id:"p-o2c",f:["o2c","int"],l:"Order to Cash",c:"var(--o2c)",t:"Salesforce to NetSuite Order-to-Cash integration",
+   p:"Sales orders were keyed in by hand from Salesforce, which caused delays and duplicate customers and items.",
+   b:["RESTlet and Map/Reduce flow that turns Salesforce Opportunities into NetSuite Sales Orders","Customer and item mapping logic that stops duplicate records","Sales data linked to fulfillment and billing transactions","Custom log records for API and transaction-level failures"],
+   r:"No more manual order entry or duplicate transactions, and the sales team sees fulfillment and billing status in real time.",
+   k:["SuiteScript 2.x","RESTlet","Map/Reduce","OAuth 2.0","Salesforce"]},
+  {id:"p-app",f:["p2p"],l:"Procure to Pay",c:"var(--p2p)",t:"Secure email-based PO approval",
+   p:"Executives needed to approve purchase orders but did not have NetSuite licenses.",
+   b:["One-time approval links with expiry checks, signed with the N/crypto module","Automated emails with the PO attached as a PDF","Approve and reject screens built as Suitelet web forms"],
+   r:"Faster approvals with a full audit trail, and no extra NetSuite licenses for approvers.",
+   k:["SuiteScript 2.1","Suitelet","N/crypto","Advanced PDF"]},
+  {id:"p-proc",f:["p2p"],l:"Procure to Pay",c:"var(--p2p)",t:"Custom procurement module",
+   p:"Occasional requesters each needed a full NetSuite license just to raise purchase requests.",
+   b:["Lightweight requisition app with create, edit and approve actions","Multi-level approvals based on financial thresholds","Automatic PO to Item Receipt to Vendor Bill conversion","Tied into NetSuite financials and reporting with audit controls"],
+   r:"Lower licensing cost and one streamlined procure-to-pay flow.",
+   k:["SuiteScript 2.1","Suitelet","Client Script","Workflows"]},
+  {id:"p-log",f:["o2c","int","tax"],l:"Platform",c:"var(--o2c)",t:"Error logging and traceability framework",
+   p:"Support teams had to re-run scripts to find out which transaction had failed.",
+   b:["Custom-record log that captures script errors with project, transaction and invoice details","Saved searches that list failing records for developers and support","Shared by the Salesforce and e-invoicing integrations to record API failures"],
+   r:"Production issues are traced and fixed faster, and the system is more reliable.",
+   k:["Custom Records","User Event","Saved Searches"]}
+];
+const skills=[
+  {h:"SuiteScript",c:"var(--o2c)",x:["SuiteScript 2.x","SuiteScript 1.0","Suitelet","RESTlet","Map/Reduce","User Event","Client Script","Mass Update"]},
+  {h:"Finance, tax and e-invoicing",c:"var(--tax)",x:["Order to Cash","Procure to Pay","AP/AR automation","Multi-subsidiary","India e-invoicing (IRN, QR)","Taxilla GSP","GSTR / GSTR-2B","SuiteTax India","UAE e-invoicing","PINT AE","Peppol ASP"]},
+  {h:"Integrations",c:"var(--p2p)",x:["REST APIs","SOAP APIs","OAuth 2.0","Token-Based Auth","Webhooks","Salesforce Sales Cloud","Celigo","Postman","JSON/XML"]},
+  {h:"Platform",c:"var(--o2c)",x:["SuiteFlow","SuiteAnalytics","Saved Searches","Custom Records","Forms & Segments","SuiteBundler","SDF","CSV Import & Data Migration","Advanced PDF / FreeMarker","Dashboards","System architecture"]},
+  {h:"AI and data",c:"var(--acc)",x:["MCP","RAG","LangChain","LangGraph","Claude","Celonis Process Mining","Power BI","Tableau","R"]},
+  {h:"Tools and practice",c:"var(--p2p)",x:["JavaScript","Java","SQL / PL-SQL","XML","Git & GitHub","VS Code","Jira","CI/CD","UT/UAT","Agile"]}
+];
+const certs=[
+  ["NetSuite Certified Financial Associate","Oct 2025","var(--tax)"],["NetSuite Certified BI and Reporting Associate","Oct 2025","var(--p2p)"],["NetSuite Certified AI Foundations Associate","Oct 2025","var(--o2c)"],
+  ["NetSuite SuiteFoundation Associate","2026","var(--o2c)"],["Claude 101, Anthropic","Jun 2026","var(--acc)"],["Celigo Integration Platform, Level 1","2026","var(--tax)"],
+  ["Database Programming with PL/SQL, Oracle Academy","Jan 2024","var(--p2p)"],["Database Programming with SQL, Oracle Academy","Dec 2023","var(--o2c)"],
+  ["SuiteScript 1.0: Extend NetSuite with JavaScript","2025","var(--o2c)"],["MEAN Stack Development, Coursera","2024","var(--tax)"],["Core & Advanced Java, Coursera","2024","var(--p2p)"]
+];
+const esc=t=>String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+
+
+/* ---------- AI assistant chat ---------- */
+const convo=[
+ {s:"Failed e-invoices this week?",q:"Which invoices failed e-invoicing this week?",
+  tools:[["ns_runCustomSuiteQL","SELECT tranid, error_code FROM customrecord_script_error_log WHERE …","3 rows"],["rag.search","IRP error codes · GST SOP","2 matches"]],
+  a:"3 invoices failed this week. Two hit IRP error 2150 (duplicate IRN) and were fixed by fetching the existing IRN. One is still blocked because the buyer GSTIN is missing on the customer record.",
+  t:[["INV/26-27/7702","2150 duplicate IRN","Resolved"],["INV/26-27/7708","2150 duplicate IRN","Resolved"],["INV/26-27/7711","Buyer GSTIN missing","Needs fix"]]},
+ {s:"POs waiting for approval",q:"Which POs above ₹5 lakh are waiting for approval?",
+  tools:[["ns_runCustomSuiteQL","SELECT tranid, total, nextapprover FROM transaction WHERE type = 'PurchOrd' …","2 rows"],["ns_getRecord","purchaseorder · PO-3127","ok"]],
+  a:"Two POs are waiting. PO-3127 has been with the finance head for 2 days. Want me to resend the one-time approval link? I'll wait for your yes before sending anything.",
+  t:[["PO-3127","₹7,40,000","Finance head · 2 days"],["PO-3131","₹5,85,000","Director · today"]]},
+ {s:"Why isn't SO-1042 billed?",q:"Why hasn't SO-1042 been invoiced yet?",
+  tools:[["ns_getRecord","salesorder · SO-1042","ok"],["ns_getRecord","itemfulfillment · IF-0388","ok"],["rag.search","Billing SOP","1 match"]],
+  a:"SO-1042 is only partly fulfilled: IF-0388 shipped 2 of 3 lines. Your billing SOP says to invoice after full fulfillment, so the invoice will be created when the last line ships.",
+  t:null}
+];
+const msgs=$("#msgs"),sugg=$("#sugg"),amode=$("#amode");
+sugg.innerHTML='<span>Try:</span>'+convo.map((c,i)=>`<button type="button" data-i="${i}">${c.s}</button>`).join("");
+let ci=0,cTimers=[];
+const later=(fn,ms)=>cTimers.push(setTimeout(fn,ms));
+const add=h=>{msgs.insertAdjacentHTML("beforeend",h);msgs.scrollTop=msgs.scrollHeight;return msgs.lastElementChild};
+const play=i=>{
+  cTimers.forEach(clearTimeout);cTimers=[];ci=i;const c=convo[i];msgs.innerHTML="";
+  $$("#sugg button").forEach(b=>b.classList.toggle("on",+b.dataset.i===i));
+  const tbl=c.t?`<table>${c.t.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td class="${/fix/i.test(r[2])?"bad":""}">${r[2]}</td></tr>`).join("")}</table>`:"";
+  if(still){add(`<div class="m u">${c.q}</div>`);c.tools.forEach(t=>add(`<div class="tool done"><i class="spin"></i><code>${t[0]}</code><span>${esc(t[1])}</span><em>${t[2]}</em></div>`));add(`<div class="m a">${c.a}${tbl}</div>`);amode.textContent="answered";return}
+  amode.textContent="reading";
+  const u=add(`<div class="m u"></div>`);let k=0;
+  const typeQ=()=>{u.textContent=c.q.slice(0,++k);if(k<c.q.length)later(typeQ,22);else later(think,350)};
+  const think=()=>{amode.textContent="planning";const d=add('<div class="dots"><i></i><i></i><i></i></div>');later(()=>{d.remove();tool(0)},900)};
+  const tool=n=>{if(n>=c.tools.length)return answer();const t=c.tools[n];amode.textContent="calling tools";
+    const el=add(`<div class="tool"><i class="spin"></i><code>${t[0]}</code><span>${esc(t[1])}</span><em></em></div>`);
+    later(()=>{el.classList.add("done");el.querySelector("em").textContent=t[2];tool(n+1)},900)};
+  const answer=()=>{amode.textContent="answering";const el=add('<div class="m a"></div>');const w=c.a.split(" ");let n=0;
+    const step=()=>{el.textContent=w.slice(0,++n).join(" ");msgs.scrollTop=msgs.scrollHeight;if(n<w.length)later(step,38);else{if(tbl){el.insertAdjacentHTML("beforeend",tbl);msgs.scrollTop=msgs.scrollHeight}amode.textContent="answered";later(()=>play((ci+1)%convo.length),5200)}};step()};
+  later(typeQ,300);
+};
+onHover(sugg,"button",b=>{if(+b.dataset.i!==ci)play(+b.dataset.i)},150);
+play(0);
+
+/* ---------- neural network background ---------- */
+{
+  const cv=$("#net"),g=cv.getContext("2d"),hero=$(".hero");let W=0,H=0,pts=[],run=true,pm={x:-999,y:-999};
+  const size=()=>{const d=devicePixelRatio||1,r=hero.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;g.setTransform(d,0,0,d,0,0);
+    const n=Math.round(Math.min(90,W*H/16000));pts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,c:["#4fc1c6","#8b97ff","#f7e463"][Math.random()*3|0]}))};
+  const frame=()=>{g.clearRect(0,0,W,H);const L=130;
+    for(const p of pts){if(!still){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1}
+      const dx=pm.x-p.x,dy=pm.y-p.y,dm=Math.hypot(dx,dy);if(dm<170&&!still){p.x+=dx*.006;p.y+=dy*.006}}
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<L){g.globalAlpha=(1-d/L)*.35;g.strokeStyle="#8b97ff";g.lineWidth=1;g.beginPath();g.moveTo(a.x,a.y);g.lineTo(b.x,b.y);g.stroke()}}
+    for(const p of pts){const dm=Math.hypot(pm.x-p.x,pm.y-p.y);if(dm<170){g.globalAlpha=(1-dm/170)*.7;g.strokeStyle=p.c;g.beginPath();g.moveTo(p.x,p.y);g.lineTo(pm.x,pm.y);g.stroke()}
+      g.globalAlpha=.85;g.fillStyle=p.c;g.beginPath();g.arc(p.x,p.y,dm<170?2.6:1.8,0,7);g.fill()}
+    g.globalAlpha=1;if(run&&!still)requestAnimationFrame(frame)};
+  size();addEventListener("resize",size);
+  hero.addEventListener("pointermove",e=>{const r=hero.getBoundingClientRect();pm.x=e.clientX-r.left;pm.y=e.clientY-r.top});
+  hero.addEventListener("pointerleave",()=>{pm.x=pm.y=-999});
+  const vis=new IntersectionObserver(es=>{const was=run;run=es[0].isIntersecting;if(run&&!was)requestAnimationFrame(frame)});vis.observe(hero);
+  requestAnimationFrame(frame);
+}
+
+/* ---------- agent graph ---------- */
+{
+  const graph=$("#graph"),svg=$("#gsvg"),desc=$("#gdesc");
+  const info={q:["Question","A finance user asks something in plain English, like which invoices failed IRN this week or why an order isn't billed."],
+    r:["Agent router","A LangGraph agent plans the steps and decides whether it needs live NetSuite data, company documents, or both."],
+    m:["NetSuite tools","Through MCP, the agent reads records and runs SuiteQL or saved searches, limited to the permissions of the user's role."],
+    g:["Knowledge","A RAG pipeline searches SOPs, BRDs and tax rules, so answers follow the company's own process."],
+    v:["Checks","Results are checked against role permissions. Anything that would change data waits for a person to approve it."],
+    a:["Answer or action","The user gets an answer with record links and sources, or a drafted action ready to approve."]};
+  const E=[["q","r"],["r","m"],["r","g"],["m","v"],["g","v"],["v","a"]];
+  const N=k=>graph.querySelector(`.node[data-k="${k}"]`);
+  let paths=[];
+  const draw=()=>{const gr=graph.getBoundingClientRect();
+    paths=E.map(([a,b])=>{const A=N(a).getBoundingClientRect(),B=N(b).getBoundingClientRect();
+      return [A.left-gr.left+A.width/2,A.top-gr.top+A.height/2,B.left-gr.left+B.width/2,B.top-gr.top+B.height/2]});
+    svg.innerHTML=paths.map(p=>`<line x1="${p[0]}" y1="${p[1]}" x2="${p[2]}" y2="${p[3]}" stroke="#26346b" stroke-width="3" stroke-dasharray="6 6"/>`).join("")+paths.map((p,i)=>`<circle r="5" fill="#8b97ff" id="pl${i}"/>`).join("")};
+  const gro=new ResizeObserver(draw);gro.observe(graph);
+  const show=k=>{$$("#graph .node").forEach(n=>n.classList.toggle("on",n.dataset.k===k));desc.style.setProperty("--c",N(k).style.getPropertyValue("--c"));desc.innerHTML=`<b>${info[k][0]}</b><p>${info[k][1]}</p>`};
+  show("r");
+  onHover(graph,".node",n=>show(n.dataset.k),40);
+  /* pulses flow edge by edge in order */
+  const order=[[0],[1,2],[3,4],[5]];let t0=performance.now();
+  const pulse=t=>{const per=900,cyc=order.length*per+600,tt=(t-t0)%cyc,stage=Math.floor(tt/per),f=(tt%per)/per;
+    paths.forEach((p,i)=>{const c=$("#pl"+i);if(!c)return;const on=order[stage]&&order[stage].includes(i);
+      c.setAttribute("opacity",on?1:0);if(on){c.setAttribute("cx",p[0]+(p[2]-p[0])*f);c.setAttribute("cy",p[1]+(p[3]-p[1])*f)}});
+    requestAnimationFrame(pulse)};
+  if(!still)requestAnimationFrame(pulse);
+}
+
+/* ---------- rotating role ---------- */
+const roles=["AI-First NetSuite Consultant","Oracle NetSuite Technical Consultant","E-Invoicing Integrator, India & UAE","SuiteScript 2.x Developer","Salesforce ↔ NetSuite Integrator","O2C & P2P Automation Specialist"];
+if(!still){
+  const el=$("#role");let ri=0,ci=roles[0].length,del=true;
+  const tick=()=>{
+    if(del){ci--;el.textContent=roles[ri].slice(0,ci);if(ci<=0){del=false;ri=(ri+1)%roles.length}setTimeout(tick,ci<=0?300:26)}
+    else{ci++;el.textContent=roles[ri].slice(0,ci);if(ci>=roles[ri].length){del=true;setTimeout(tick,2600)}else setTimeout(tick,55)}};
+  setTimeout(tick,2600);
+}
+
+/* ---------- count-up ---------- */
+if(!still)$$(".facts strong").forEach(el=>{const n=+el.dataset.n,s=el.dataset.s||"",t0=performance.now();
+  const f=t=>{const k=Math.min(1,(t-t0)/1400),e=1-(1-k)**3;el.textContent=(n%1?(n*e).toFixed(1):Math.round(n*e))+(k===1?s:"");if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)});
+
+/* ---------- strip ---------- */
+const strip=["MCP","RAG","LangGraph","LangChain","Claude","SuiteScript 2.x","RESTlet","Map/Reduce","Suitelet","India e-invoicing","Taxilla","GSTR-2B","UAE e-invoicing","PINT AE","Salesforce","Celigo","OAuth 2.0","SDF","Advanced PDF","SuiteAnalytics"];
+const cs=["var(--o2c)","var(--p2p)","var(--tax)"];
+const sHTML=strip.map((x,i)=>`<span style="--c:${cs[i%3]}">${x}<i>◆</i></span>`).join("");
+$("#strip").innerHTML=sHTML+sHTML;
+
+/* ---------- how I work ---------- */
+const how=$$("#how li");let hi=0;how[0].classList.add("on");
+if(!still)setInterval(()=>{how[hi].classList.remove("on");hi=(hi+1)%how.length;how[hi].classList.add("on")},2200);
+
+/* ---------- process map ---------- */
+$("#lanes").innerHTML=lanes.map(l=>`<div class="lane" data-k="${l.k}" style="--c:${l.c}"><h3><i></i>${l.name}</h3><ol class="route"><span class="fill"></span><span class="tok"><span></span></span>${l.st.map((s,i)=>`<li class="st" data-l="${l.k}" data-i="${i}"><button type="button" aria-label="${s.t}: ${s.s}"><span class="dot"></span><b>${s.t}</b><small>${s.s}</small></button></li>`).join("")}</ol></div>`).join("");
+const run={o2c:0,p2p:0};
+const place=(k,i,jump)=>{
+  const lane=$(`.lane[data-k="${k}"]`);if(!lane||lane.hidden)return;
+  const route=lane.querySelector(".route"),tok=lane.querySelector(".tok"),fill=lane.querySelector(".fill");
+  const sts=route.querySelectorAll(".st"),dot=sts[i].querySelector(".dot");
+  const rr=route.getBoundingClientRect(),dr=dot.getBoundingClientRect(),first=sts[0].querySelector(".dot").getBoundingClientRect();
+  const x=dr.left-rr.left+dr.width/2,y=dr.top-rr.top+dr.height/2;
+  tok.classList.toggle("jump",!!jump);fill.style.transition=jump?"none":"";
+  tok.style.transform=`translate(${x}px,${y}px)`;
+  tok.querySelector("span").textContent=lanes.find(l=>l.k===k).st[i].doc;
+  const vertical=innerWidth<=640,fx=first.left-rr.left+first.width/2,fy=first.top-rr.top+first.height/2;
+  fill.style.left=(vertical?fx-3:fx)+"px";fill.style.top=(vertical?fy:fy-3)+"px";
+  if(vertical){fill.style.width="6px";fill.style.height=(dr.top-first.top)+"px"}else{fill.style.height="6px";fill.style.width=(dr.left-first.left)+"px"}
+  sts.forEach((s,j)=>s.classList.toggle("cur",j===i));
+};
+const detail=$("#detail");
+const showDetail=(k,i)=>{
+  const l=lanes.find(x=>x.k===k),s=l.st[i];
+  $$(".st").forEach(x=>x.classList.toggle("sel",x.dataset.l===k&&+x.dataset.i===i));
+  detail.style.setProperty("--c",l.c);
+  detail.innerHTML=`<div><h4><i>${l.name}</i> · ${s.t}</h4><p>${s.d}</p></div><div class="go">${s.p.map(p=>`<button class="pill" data-go="${PJ[p].id}">${PJ[p].n} →</button>`).join("")}</div>`;
+};
+let mapHold=false;onHover($("#lanes"),".st",li=>{const k=li.dataset.l,i=+li.dataset.i;run[k]=i;place(k,i);showDetail(k,i)},60);
+$(".map").addEventListener("pointerenter",()=>{if(canHover)mapHold=true});$(".map").addEventListener("pointerleave",()=>mapHold=false);
+const goTo=id=>{const t=document.getElementById(id);if(!t)return;setFilter("all");t.scrollIntoView({behavior:still?"auto":"smooth",block:"center"});t.classList.remove("flash");void t.offsetWidth;t.classList.add("flash")};
+detail.addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(b)goTo(b.dataset.go)});
+const placeAll=j=>Object.keys(run).forEach(k=>place(k,run[k],j));
+requestAnimationFrame(()=>placeAll(true));
+document.fonts&&document.fonts.ready.then(()=>placeAll(true));
+const ro=new ResizeObserver(()=>placeAll(true));ro.observe($("#lanes"));
+showDetail("o2c",3);
+if(!still)setInterval(()=>{if(mapHold)return;Object.keys(run).forEach(k=>{const n=(run[k]+1)%5;run[k]=n;place(k,n,n===0)})},1600);
+onHover($("#laneSeg"),"button",b=>{const v=b.dataset.v;
+  $$("#laneSeg button").forEach(x=>x.classList.toggle("on",x===b));
+  $$(".lane").forEach(l=>l.hidden=!(v==="both"||l.dataset.k===v));
+  if(v!=="both")showDetail(v,run[v]);requestAnimationFrame(()=>placeAll(true))},160);
+
+/* ---------- e-invoicing console ---------- */
+const EIN={
+  in:{title:"netsuite → taxilla → IRP",no:"INV/26-27/7710",date:"27 Nov 2026",cur:"₹",loc:"en-IN",
+    seller:["Sample Industries Pvt. Ltd.","GSTIN 27AABCS1234F1Z5"],buyer:["Sample Retail LLP","GSTIN 29AAGFS5678K1Z2"],
+    lines:[["Industrial pump, HSN 8413",2,120000],["Control panel, HSN 8537",1,120000],["Installation, SAC 9987",1,60000]],tax:[["IGST 18%",.18]],
+    stages:["Pending","Validated","IRN generated","QR on PDF"],
+    ok:[[0,"in","Invoice saved in NetSuite, status Pending"],[null,"tx","Built e-invoice JSON, schema 1.1, 3 lines, HSN mapped"],[1,"ok","Validated GSTIN, HSN codes and tax totals"],[null,"tx","POST to IRP through Taxilla GSP"]],
+    err:[[null,"err","IRP error 2150: Duplicate IRN"],[null,"in","Logged to customrecord_script_error_log"],[null,"tx","Fetching existing IRN by document number"]],
+    end:[[2,"ok","IRN received, acknowledgement 112410005678912"],[null,"in","IRN, ack number and signed QR saved on invoice"],[3,"ok","Advanced PDF regenerated with QR code ✓"]],
+    idLabel:"IRN",id:"6f1c2b9e4d7a0c58e13f9b2a7d64c0e5a91b8f3d2c7e6a40b5d9f1e8c3a72b16",stamp:"IRN<br>GENERATED"},
+  ae:{title:"netsuite → ASP (C2) → buyer ASP (C3) → FTA",no:"INV-AE-0193",date:"27 Nov 2026",cur:"AED ",loc:"en-AE",
+    seller:["Sample Trading FZE","TRN 100234567800003"],buyer:["Sample Gulf Contracting LLC","TRN 100398765400003"],
+    lines:[["Pump spares kit",4,3000],["Site service visit",3,1500],["Freight and handling",1,2000]],tax:[["VAT 5%",.05]],
+    stages:["Pending","PINT AE ready","Sent to ASP","Reported to FTA"],
+    ok:[[0,"in","Invoice saved in NetSuite, status Pending"],[null,"tx","Mapped to PINT AE (UBL XML), mandatory fields checked"]],
+    err:[[null,"err","Validation failed: buyer TRN missing on customer record"],[null,"in","Logged to customrecord_script_error_log, customer TRN updated"],[null,"tx","Rebuilding PINT AE XML"]],
+    end:[[1,"ok","TRN, tax category and totals valid"],[2,"tx","Sent to Accredited Service Provider (corner 2), HTTP 202"],[null,"ok","Buyer's ASP returned message level status: accepted"],[3,"ok","Tax data document reported to FTA ✓"],[null,"in","Status and ASP response saved on invoice"]],
+    idLabel:"ASP message ID",id:"AE-C2-20261127-000193-7F3A",stamp:"REPORTED<br>TO FTA"}
+};
+let cc="in",withErr=false,eTimer=null;
+const fmt=(c,v)=>c.cur+v.toLocaleString(c.loc,{minimumFractionDigits:2,maximumFractionDigits:2});
+const qrSVG=seed=>{let s=seed,r=()=>(s=s*16807%2147483647)/2147483647;const N=25;let p="";
+  const fin=(x,y)=>`<rect x="${x}" y="${y}" width="7" height="7" fill="#151a2e"/><rect x="${x+1}" y="${y+1}" width="5" height="5" fill="#fff"/><rect x="${x+2}" y="${y+2}" width="3" height="3" fill="#151a2e"/>`;
+  for(let y=0;y<N;y++)for(let x=0;x<N;x++){const inF=(x<8&&y<8)||(x>16&&y<8)||(x<8&&y>16);if(!inF&&r()>.52)p+=`<rect x="${x}" y="${y}" width="1" height="1"/>`}
+  return `<svg viewBox="-1 -1 27 27" aria-label="Signed QR code"><rect x="-1" y="-1" width="27" height="27" fill="#fff"/><g fill="#151a2e">${p}</g>${fin(0,0)}${fin(18,0)}${fin(0,18)}</svg>`};
+const drawDoc=(stage,errNow)=>{
+  const c=EIN[cc],sub=c.lines.reduce((a,l)=>a+l[1]*l[2],0),taxes=c.tax.map(t=>[t[0],sub*t[1]]),tot=sub+taxes.reduce((a,t)=>a+t[1],0);
+  const done=stage>=c.stages.length-1,idShown=cc==="in"?stage>=2:stage>=2;
+  $("#doc").innerHTML=`<div class="dh"><div><h4>Tax Invoice</h4><small>${c.no} · ${c.date}</small></div><span class="badge ${errNow?"err":done?"done":""}">${errNow?"Error":c.stages[Math.max(stage,0)]}</span></div>
+  <div class="parties"><div><b>Seller</b><span>${c.seller[0]}</span><code>${c.seller[1]}</code></div><div><b>Buyer</b><span>${c.buyer[0]}</span><code>${c.buyer[1]}</code></div></div>
+  <table><thead><tr><th>Item</th><th class="n">Qty</th><th class="n">Amount</th></tr></thead><tbody>${c.lines.map(l=>`<tr><td>${l[0]}</td><td class="n">${l[1]}</td><td class="n">${fmt(c,l[1]*l[2])}</td></tr>`).join("")}</tbody>
+  <tfoot><tr><td colspan="2">Taxable value</td><td class="n">${fmt(c,sub)}</td></tr>${taxes.map(t=>`<tr><td colspan="2">${t[0]}</td><td class="n">${fmt(c,t[1])}</td></tr>`).join("")}<tr><td colspan="2">Total</td><td class="n">${fmt(c,tot)}</td></tr></tfoot></table>
+  <div class="irn"><div><b>${c.idLabel}</b><code>${idShown?c.id:"awaiting response…"}</code><b>${cc==="in"?"Ack no.":"Format"}</b><code>${cc==="in"?(idShown?"112410005678912":"—"):"PINT AE · UBL 2.1 XML"}</code></div>
+  <div class="stamp ${done?"on":""}">${c.stamp}</div>
+  <div class="qr">${cc==="in"?(stage>=2?qrSVG(7710):"QR after IRN"):(done?qrSVG(193):"Status after FTA report")}</div></div>`;
+};
+const drawStages=(stage,errAt)=>{const c=EIN[cc];
+  $("#stages").innerHTML=c.stages.map((s,i)=>`<li class="${i<=stage?"done":i===errAt?"err":i===stage+1?"on":""}">${s}</li>`).join("")};
+const runEin=()=>{
+  clearTimeout(eTimer);const c=EIN[cc];$("#conTitle").textContent=c.title;
+  const seq=[...c.ok,...(withErr?c.err:[]),...c.end];
+  const log=$("#log");log.innerHTML="";let stage=0,i=0,t0=Date.UTC(2026,10,27,5,12,4);
+  const line=(k,txt,ms)=>{const d=new Date(t0+ms);const ts=d.toISOString().slice(11,19);log.insertAdjacentHTML("beforeend",`<div><time>${ts}</time><span class="${k}">${esc(txt)}</span></div>`);log.scrollTop=log.scrollHeight};
+  if(still){seq.forEach((s,j)=>{if(s[0]!==null)stage=s[0];line(s[1],s[2],j*900)});drawDoc(stage,false);drawStages(stage,-1);return}
+  drawDoc(0,false);drawStages(0,-1);
+  const step=()=>{const s=seq[i];if(s[0]!==null)stage=s[0];const isErr=s[1]==="err";
+    line(s[1],s[2],i*900+Math.round(i*137%400));drawDoc(stage,isErr);drawStages(stage,isErr?stage+1:-1);i++;
+    if(i<seq.length)eTimer=setTimeout(step,isErr?1600:1000);else{withErr=!withErr;eTimer=setTimeout(runEin,5200)}};
+  eTimer=setTimeout(step,500);
+};
+onHover($("#einSeg"),"button",b=>{if(b.dataset.v===cc)return;cc=b.dataset.v;$$("#einSeg button").forEach(x=>x.classList.toggle("on",x===b));withErr=false;runEin()},160);
+$("#replay").addEventListener("click",()=>runEin());
+runEin();
+
+/* ---------- projects ---------- */
+$("#cards").innerHTML=projects.map(p=>`<article class="card" id="${p.id}" data-f="${p.f.join(" ")}" style="--c:${p.c}"><div class="k"><h3>${p.t}</h3><span class="lane-l">${p.l}</span></div><dl><dt>Problem</dt><dd>${p.p}</dd><dt>Built</dt><dd><ul>${p.b.map(x=>`<li>${x}</li>`).join("")}</ul></dd><dt>Result</dt><dd class="res">${p.r}</dd></dl><div class="tags">${p.k.map(x=>`<span class="tag">${x}</span>`).join("")}</div></article>`).join("");
+const setFilter=v=>{$$("#projSeg button").forEach(x=>x.classList.toggle("on",x.dataset.v===v));$$(".card").forEach(c=>c.classList.toggle("dim",v!=="all"&&!c.dataset.f.split(" ").includes(v)))};
+onHover($("#projSeg"),"button",b=>setFilter(b.dataset.v),140);
+$("#cards").addEventListener("pointermove",e=>{const c=e.target.closest(".card");if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty("--x",(e.clientX-r.left)+"px");c.style.setProperty("--y",(e.clientY-r.top)+"px")});
+
+/* ---------- skills & certs ---------- */
+$("#skillgrid").innerHTML=skills.map(s=>`<div class="sk" style="--c:${s.c}"><h3>${s.h}</h3><div class="chips">${s.x.map(x=>`<span class="chip">${x}</span>`).join("")}</div></div>`).join("");
+$("#certlist").innerHTML=certs.map(c=>`<li style="--c:${c[2]}"><b>${c[0]}</b><span>${c[1]}</span></li>`).join("");
+
+/* ---------- hero glow, progress, active nav ---------- */
+const hero=$(".hero");
+if(!still&&matchMedia("(pointer:fine)").matches)hero.addEventListener("pointermove",e=>{const r=hero.getBoundingClientRect();hero.style.setProperty("--mx",(e.clientX-r.left)+"px");hero.style.setProperty("--my",(e.clientY-r.top)+"px")});
+const prog=$("#prog");
+addEventListener("scroll",()=>{const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight||1)*100)+"%"},{passive:true});
+const navObs=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting)$$(".links a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+en.target.id))}),{rootMargin:"-45% 0px -50% 0px"});
+$$("section[id],footer[id]").forEach(s=>navObs.observe(s));
+
+/* ---------- copy email ---------- */
+$("#copy").addEventListener("click",async e=>{const b=e.currentTarget;
+  try{await navigator.clipboard.writeText("Shaan2000.kr@gmail.com");b.textContent="Copied ✓"}catch(err){b.textContent="Shaan2000.kr@gmail.com"}
+  setTimeout(()=>b.textContent="Copy email address",2200)});
+
+/* ---------- cursor ring, sparkle trail, tilt, magnetic buttons ---------- */
+const fine=matchMedia("(pointer:fine)").matches&&!still;
+if(fine){
+  const ring=$("#cring"),dot=$("#cdot"),cv=$("#spark"),cx=cv.getContext("2d");
+  const COLS=["#4fc1c6","#f7e463","#8b97ff","#e8452c"];
+  let mx=-100,my=-100,rx=-100,ry=-100,lx=0,ly=0,parts=[],anim=false;
+  const size=()=>{const d=devicePixelRatio||1;cv.width=innerWidth*d;cv.height=innerHeight*d;cx.setTransform(d,0,0,d,0,0)};
+  size();addEventListener("resize",size);
+  const add=(x,y,n,burst)=>{for(let k=0;k<n;k++){const a=Math.random()*Math.PI*2,v=burst?1.5+Math.random()*3:Math.random()*.8;
+    parts.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-(burst?0:.4),r:burst?2+Math.random()*2.5:1.2+Math.random()*2,life:1,c:COLS[Math.random()*4|0],sq:Math.random()<.3})}
+    if(parts.length>220)parts.splice(0,parts.length-220);if(!anim){anim=true;requestAnimationFrame(loop)}};
+  const loop=()=>{
+    rx+=(mx-rx)*.18;ry+=(my-ry)*.18;
+    ring.style.transform=`translate(${rx}px,${ry}px)`;dot.style.transform=`translate(${mx}px,${my}px)`;
+    cx.clearRect(0,0,innerWidth,innerHeight);
+    parts=parts.filter(q=>(q.life-=.022)>0);
+    for(const q of parts){q.x+=q.vx;q.y+=q.vy;q.vy+=.03;q.vx*=.97;cx.globalAlpha=q.life;cx.fillStyle=q.c;
+      if(q.sq){cx.save();cx.translate(q.x,q.y);cx.rotate(q.life*6);cx.fillRect(-q.r,-q.r,q.r*2,q.r*2);cx.restore()}
+      else{cx.beginPath();cx.arc(q.x,q.y,q.r*q.life+.3,0,7);cx.fill()}}
+    cx.globalAlpha=1;
+    if(parts.length||Math.abs(mx-rx)>.3||Math.abs(my-ry)>.3)requestAnimationFrame(loop);else anim=false};
+  addEventListener("pointermove",e=>{mx=e.clientX;my=e.clientY;document.body.classList.add("cur-on");
+    const d=Math.hypot(mx-lx,my-ly);if(d>14){add(mx,my,1+(d>40),false);lx=mx;ly=my}
+    if(!anim){anim=true;requestAnimationFrame(loop)}},{passive:true});
+  document.addEventListener("pointerleave",()=>document.body.classList.remove("cur-on"));
+  addEventListener("pointerdown",e=>{ring.classList.add("down");add(e.clientX,e.clientY,16,true)});
+  addEventListener("pointerup",()=>ring.classList.remove("down"));
+  const HOT="a,button,.node,.card,.chip,.ava,.doc,.certs li,.how li,.tag";
+  document.addEventListener("pointerover",e=>{ring.classList.toggle("big",!!e.target.closest(HOT))});
+
+  /* tilt */
+  const tilt=(sel,max,lift)=>$$(sel).forEach(el=>{el.classList.add("tilt");
+    el.addEventListener("pointermove",e=>{const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
+      el.style.transition="transform .08s";el.style.transform=`perspective(900px) rotateX(${(-py*max).toFixed(2)}deg) rotateY(${(px*max).toFixed(2)}deg) translateY(${lift}px)`});
+    el.addEventListener("pointerleave",()=>{el.style.transition="transform .5s cubic-bezier(.3,1.4,.5,1)";el.style.transform=""})});
+  tilt(".card",5,-4);tilt(".doc",4,0);tilt(".agent",3,0);tilt(".info",4,0);tilt(".job",2.5,0);tilt(".sk",5,-2);
+
+  /* magnetic buttons */
+  document.addEventListener("pointermove",e=>{const b=e.target.closest(".btn,.pill");
+    $$(".btn.mag,.pill.mag").forEach(x=>{if(x!==b){x.classList.remove("mag");x.style.transform=""}});
+    if(!b)return;const r=b.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);
+    b.classList.add("mag");b.style.transform=`translate(${dx*.18}px,${dy*.28-2}px)`},{passive:true});
+
+  /* photo: burst of sparks on hover */
+  $("#ava").addEventListener("pointerenter",()=>{const r=$("#ava").getBoundingClientRect();
+    for(let k=0;k<18;k++){const a=k/18*Math.PI*2;add(r.left+r.width/2+Math.cos(a)*r.width/2,r.top+r.height/2+Math.sin(a)*r.height/2,1,true)}});
+}
+}
+</script>
+</body>
+</html>

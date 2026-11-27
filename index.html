@@ -1053,6 +1053,7 @@ $("#copy").addEventListener("click",async e=>{const b=e.currentTarget;
   const setLang=(l,save)=>{if(!L[l])l="en";LANG=l;const h=document.documentElement;h.lang=l;h.dir=l==="ar"?"rtl":"ltr";
     if(l==="ar"&&!arFont){arFont=true;const k=document.createElement("link");k.rel="stylesheet";k.href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap";document.head.appendChild(k)}
     units.forEach(([el,en])=>{el.innerHTML=tr(en)});
+    const rl=$("#role"),rt=tr("AI-First NetSuite Consultant");if(rl&&rl.textContent.length<=1||rl&&!rl.dataset.moved){rl.textContent=rt}$(".role")&&$(".role").setAttribute("aria-label",rt);
     $("#langCode").textContent=l.toUpperCase();
     $$("#langList button").forEach(b=>b.setAttribute("aria-current",b.dataset.l===l));
     try{laneText();showDetail(detSel[0],detSel[1])}catch(e){}

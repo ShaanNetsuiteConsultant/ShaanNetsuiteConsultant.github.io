@@ -129,6 +129,24 @@ nav b i{font-style:normal;color:var(--o2c)}
 .cap h3{font-size:20px;margin-bottom:8px}
 .cap p{margin:0 0 12px;color:var(--mute);font-size:15px}
 
+/* globe */
+.gw{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);grid-template-areas:"t g" "l g";gap:10px clamp(24px,4vw,56px);align-items:center}
+.gt{grid-area:t;align-self:end}.places{grid-area:l;align-self:start}.globe{grid-area:g}
+.globe{position:relative;width:100%;max-width:600px;aspect-ratio:1;justify-self:center;cursor:grab;touch-action:pan-y}
+.globe:active{cursor:grabbing}
+.globe canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
+.gl{position:absolute;left:0;top:0;z-index:2;pointer-events:none;font:600 12.5px var(--M);padding:3px 9px;border-radius:7px;background:color-mix(in srgb,var(--panel) 88%,transparent);border:1px solid var(--c);color:var(--ink);white-space:nowrap;transition:opacity .25s,background .25s,color .25s}
+.gl.on{background:var(--c);color:var(--bg)}
+.places{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.places li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:2px 14px;align-items:center;padding:14px 16px;border-radius:12px;background:var(--panel);border:1px solid var(--line);cursor:pointer;transition:border-color .25s,transform .25s,background .25s}
+.places li::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--c);box-shadow:0 0 12px var(--c);grid-row:span 2}
+.places li b{font-family:var(--D);font-size:17px}
+.places li span{color:var(--mute);font-size:14px}
+.places li.on{border-color:var(--c);transform:translateX(6px);background:color-mix(in srgb,var(--c) 10%,var(--panel))}
+.brain{position:relative;width:min(420px,100%);aspect-ratio:1.5;flex:none;margin-block:-30px}
+.brain canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
+.ai .head{align-items:center}
+
 /* photo */
 .me{display:flex;align-items:center;gap:clamp(18px,2.5vw,28px);margin-bottom:4px}
 .ava{position:relative;flex:none;width:clamp(112px,10vw,136px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;outline:none}
@@ -321,8 +339,9 @@ footer a{font-weight:600;overflow-wrap:anywhere}
 footer .btn{background:#fff;color:var(--acc);border-color:#fff;margin-bottom:22px}
 .fine{margin-top:28px;font-size:13px;opacity:.9;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px}
 
-@media(max-width:960px){.caps{grid-template-columns:minmax(0,1fr)}.graph{grid-template-columns:repeat(3,minmax(0,1fr))}.n-q{grid-column:1;grid-row:1}.n-r{grid-column:2;grid-row:1}.n-m{grid-column:3;grid-row:1}.n-g{grid-column:3;grid-row:2}.n-v{grid-column:2;grid-row:2}.n-a{grid-column:1;grid-row:2}.eduw{grid-template-columns:minmax(0,1fr)}.hero .wrap,.about,.ein{grid-template-columns:minmax(0,1fr)}.cards{grid-template-columns:minmax(0,1fr)}.skills,.certs,.how{grid-template-columns:repeat(2,minmax(0,1fr))}footer .row{grid-template-columns:repeat(2,minmax(0,1fr))}.job ul{columns:1}}
+@media(max-width:960px){.gw{grid-template-columns:minmax(0,1fr);grid-template-areas:"t" "g" "l"}.globe{max-width:480px}.caps{grid-template-columns:minmax(0,1fr)}.graph{grid-template-columns:repeat(3,minmax(0,1fr))}.n-q{grid-column:1;grid-row:1}.n-r{grid-column:2;grid-row:1}.n-m{grid-column:3;grid-row:1}.n-g{grid-column:3;grid-row:2}.n-v{grid-column:2;grid-row:2}.n-a{grid-column:1;grid-row:2}.eduw{grid-template-columns:minmax(0,1fr)}.hero .wrap,.about,.ein{grid-template-columns:minmax(0,1fr)}.cards{grid-template-columns:minmax(0,1fr)}.skills,.certs,.how{grid-template-columns:repeat(2,minmax(0,1fr))}footer .row{grid-template-columns:repeat(2,minmax(0,1fr))}.job ul{columns:1}}
 @media(max-width:640px){
+.brain{width:100%;aspect-ratio:2}
 .msgs{height:360px}.m{max-width:94%}
 .graph{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 18px}.n-q{grid-column:1/3;grid-row:1}.n-r{grid-column:1/3;grid-row:2}.n-m{grid-column:1;grid-row:3}.n-g{grid-column:2;grid-row:3}.n-v{grid-column:1/3;grid-row:4}.n-a{grid-column:1/3;grid-row:5}.gdesc{grid-template-columns:minmax(0,1fr)}
 .mini{grid-template-columns:minmax(0,1fr)}
@@ -347,7 +366,7 @@ footer .btn{background:#fff;color:var(--acc);border-color:#fff;margin-bottom:22p
 </style>
 </head>
 <body>
-<nav><div class="wrap"><a class="brand" href="#top"><img src="photo.jpg" alt="" width="34" height="34"><b>Shantanu<i>.</i></b></a><div class="links"><a href="#about">About</a><a href="#ai">AI</a><a href="#flow">Process map</a><a href="#einvoice">E-invoicing</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#certs">Certifications</a><a href="#contact">Contact</a></div></div><div id="prog"></div></nav>
+<nav><div class="wrap"><a class="brand" href="#top"><img src="photo.jpg" alt="" width="34" height="34"><b>Shantanu<i>.</i></b></a><div class="links"><a href="#about">About</a><a href="#ai">AI</a><a href="#flow">Process map</a><a href="#einvoice">E-invoicing</a><a href="#world">Where</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#certs">Certifications</a><a href="#contact">Contact</a></div></div><div id="prog"></div></nav>
 
 <header class="band hero" id="top"><canvas id="net" aria-hidden="true"></canvas><div class="wrap">
   <div>
@@ -417,6 +436,7 @@ footer .btn{background:#fff;color:var(--acc);border-color:#fff;margin-bottom:22p
 <section class="band sec ai" id="ai"><div class="wrap">
   <div class="head">
     <div><h2>AI-first NetSuite</h2><p class="lead">I build AI agents that work with NetSuite data and documents, using MCP, RAG, LangChain and LangGraph. Point at any step to see what it does.</p></div>
+    <div class="brain" id="brain" aria-hidden="true"></div>
   </div>
   <div class="graph" id="graph">
     <svg id="gsvg" aria-hidden="true"></svg>
@@ -464,7 +484,18 @@ footer .btn{background:#fff;color:var(--acc);border-color:#fff;margin-bottom:22p
   <p class="note">Simulated run with sample data. The flow and status codes match the integrations I built.</p>
 </div></section>
 
-<section class="band sec alt" id="projects"><div class="wrap">
+<section class="band sec alt" id="world"><div class="wrap gw">
+  <div class="gt"><h2>From Gurugram to the Gulf</h2><p class="lead">Based in Gurugram, delivering NetSuite work for India and the UAE, and open to remote roles anywhere. Point at a place to fly the globe there, or drag the globe to spin it.</p></div>
+  <div class="globe" id="globe" aria-label="3D globe showing Gurugram, Noida, Dubai and remote work links"></div>
+  <ul class="places" id="places">
+    <li data-p="ggn" style="--c:var(--o2c)"><b>Gurugram, India</b><span>Home base · ROSTAN Technologies · India GST e-invoicing</span></li>
+    <li data-p="noi" style="--c:var(--p2p)"><b>Noida, India</b><span>First NetSuite role · Innovative Digitech · Salesforce integration</span></li>
+    <li data-p="dxb" style="--c:var(--tax)"><b>Dubai, UAE</b><span>UAE e-invoicing in PINT AE through an Accredited Service Provider</span></li>
+    <li data-p="rem" style="--c:var(--acc)"><b>Anywhere remote</b><span>Open to remote and international roles: London, Singapore, New York and beyond</span></li>
+  </ul>
+</div></section>
+
+<section class="band sec" id="projects"><div class="wrap">
   <div class="head">
     <div><h2>Selected projects</h2><p class="lead">Production work from client accounts, including Kanex Fire. Each one replaced a manual step, a paid license or a compliance risk with something that leaves an audit trail.</p></div>
     <div class="seg" id="projSeg"><button data-v="all" class="on">All</button><button data-v="tax">E-invoicing</button><button data-v="o2c">O2C</button><button data-v="p2p">P2P</button><button data-v="int">Integrations</button><button data-v="impl">Implementation</button><button data-v="ai">AI</button></div>
@@ -541,6 +572,8 @@ footer .btn{background:#fff;color:var(--acc);border-color:#fff;margin-bottom:22p
   <div class="fine"><span>The AI assistant chat and the e-invoicing console are illustrative, with sample data · © 2026 Shantanu Kumar</span><a href="#top">Back to top ↑</a></div>
 </div></footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
 <div class="cring" id="cring" aria-hidden="true"></div><div class="cdot" id="cdot" aria-hidden="true"></div><canvas id="spark" aria-hidden="true"></canvas>
 <script>
 {
@@ -704,7 +737,7 @@ play(0);
       return [A.left-gr.left+A.width/2,A.top-gr.top+A.height/2,B.left-gr.left+B.width/2,B.top-gr.top+B.height/2]});
     svg.innerHTML=paths.map(p=>`<line x1="${p[0]}" y1="${p[1]}" x2="${p[2]}" y2="${p[3]}" stroke="#26346b" stroke-width="3" stroke-dasharray="6 6"/>`).join("")+paths.map((p,i)=>`<circle r="5" fill="#8b97ff" id="pl${i}"/>`).join("")};
   const gro=new ResizeObserver(draw);gro.observe(graph);
-  const show=k=>{$$("#graph .node").forEach(n=>n.classList.toggle("on",n.dataset.k===k));desc.style.setProperty("--c",N(k).style.getPropertyValue("--c"));desc.innerHTML=`<b>${info[k][0]}</b><p>${info[k][1]}</p>`};
+  const show=k=>{$$("#graph .node").forEach(n=>n.classList.toggle("on",n.dataset.k===k));desc.style.setProperty("--c",N(k).style.getPropertyValue("--c"));desc.innerHTML=`<b>${info[k][0]}</b><p>${info[k][1]}</p>`;const hx=getComputedStyle(N(k)).getPropertyValue("--c").trim();if(window.__brainTint&&/^#/.test(hx))window.__brainTint(hx)};
   show("r");
   onHover(graph,".node",n=>show(n.dataset.k),40);
   /* pulses flow edge by edge in order */
@@ -714,6 +747,124 @@ play(0);
       c.setAttribute("opacity",on?1:0);if(on){c.setAttribute("cx",p[0]+(p[2]-p[0])*f);c.setAttribute("cy",p[1]+(p[3]-p[1])*f)}});
     requestAnimationFrame(pulse)};
   if(!still)requestAnimationFrame(pulse);
+}
+
+
+/* ---------- 3D: shared helpers ---------- */
+const T=window.THREE,isPhone=matchMedia("(max-width:640px)").matches;
+const glOK=(()=>{try{const c=document.createElement("canvas");return !!(T&&(c.getContext("webgl")||c.getContext("experimental-webgl")))}catch(e){return false}})();
+const mkRenderer=host=>{const r=new T.WebGLRenderer({antialias:true,alpha:true});r.setPixelRatio(Math.min(devicePixelRatio||1,isPhone?1.5:2));host.appendChild(r.domElement);return r};
+const loopWhenVisible=(host,frame)=>{let on=false,raf=0;const tick=t=>{frame(t);if(on)raf=requestAnimationFrame(tick)};
+  new IntersectionObserver(es=>{const v=es[0].isIntersecting;if(v&&!on){on=true;raf=requestAnimationFrame(tick)}else if(!v){on=false;cancelAnimationFrame(raf)}}).observe(host);
+  return()=>{if(!on)requestAnimationFrame(frame)}};
+
+/* ---------- 3D globe ---------- */
+if(glOK){try{
+  const host=$("#globe"),R=1;
+  const ren=mkRenderer(host),scene=new T.Scene(),cam=new T.PerspectiveCamera(32,1,.1,100);cam.position.z=4.3;
+  const G=new T.Group();scene.add(G);
+  const ll=(lat,lon,r=R)=>{const ph=(90-lat)*Math.PI/180,th=(lon+180)*Math.PI/180;return new T.Vector3(-r*Math.sin(ph)*Math.cos(th),r*Math.cos(ph),r*Math.sin(ph)*Math.sin(th))};
+  G.add(new T.Mesh(new T.SphereGeometry(R*.985,64,64),new T.MeshBasicMaterial({color:0x0f1b4a,transparent:true,opacity:.96})));
+  const atm=new T.Mesh(new T.SphereGeometry(R*1.18,64,64),new T.ShaderMaterial({transparent:true,side:T.BackSide,blending:T.AdditiveBlending,depthWrite:false,
+    vertexShader:"varying vec3 n;void main(){n=normalize(normalMatrix*normal);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}",
+    fragmentShader:"varying vec3 n;void main(){float i=pow(.62-dot(n,vec3(0,0,1.)),3.);gl_FragColor=vec4(.35,.45,1.,1.)*i;}"}));
+  scene.add(atm);
+  /* land dots from a 1-degree land map */
+  const bin=atob("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADP/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH///+B3P///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf////z////////AAAAAAAAAAAbAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAB/////////////8AAAAAfgMAB3/+AAAAfwAAAAAAAAAAAAAAAAAAAAAAAAAOM////g////////gAAAD/34AAAAAAAAAAP9gAAAAAAAAAAAAAAAAAAAAAAAAD/v//9////////6AAAAD/8AAAAAAAAAAAAD+AAAAAAAAAAAAAAAAAAAAAA9cNg5P/Af////////gAAAAfnAAAAAAAAAAAAA8AAAAAAAAAAAAAAAAAAAAAH/jD////AP///////9AAAAACAAAAAAAf4AAABn/+AAAAAAAAAAAAAAAAAAAACf/+8//+AAAf//////AAAAAAAAAAAAH+AAAD////AAAF/vAAAAAAAAAAAAAAfY8AEb/8AAAH/////+AAAAAAAAAAAAfgAAAf///+AAAA4DAAAAAAAAAAAAAAf/A8e/f/wAAD/////8AAAAAAAAAAAB8ADAP/////+H4AHAAAAAAAAAAAAAAA///5/0//4AAD/////wAAAAAAAAAAADwAPk3///////8Af+AAAAA4AABAAAAAff/8P4///gAD/////wAAAAAAAAAAAHwAf/////////8///wAAABAAA//wAACAP//h+f//8AB/////wAAAAAAb/gAAA/Afv/////////////8AAAAAD////P//n//v+j///AB/////gAAAAAB//+AAwB+f//////////////////4AP/////////cnP34f/AAf///8AAAAAAf///4Mv///v/////////////////+AH/////////////45/wA///4AAAAAAAv///+M////v//////////////////8N/////////////wD/+A///wAQYAAAA////+////////////////////////8//////////////A/+8Af//AAf+AAAA/+/+D///////////////////////Bwff////////////4//wAP/wAA/8AAAD/8/////////////////////////+AHB////////////Hdh/wAP/wAAHgAAAP/7/////////////////////////+AAP///////////8Ay+PgAH/AAAAAAAB//H//////////////////////////AAP///////////4AC/ggAD/AAAAAAAB//H//////////////////////3v/AAAf//3////////wAA/8QAAeAAAAAACB/////////////////////////C/8AAAA/7AH///////gAA/44AAAAAAAAAAB//h/////////////////////+DwAAAAA/8AA///////4AB//4AAAAAAAABYB9/C///////////////////8AAPwAAAAAH8AAP//////9AAf/+AAAAAAAAD8AG+m///////////////////wAAfwAAAAAeAAAP///////wDf/+AAAAAAAAA8AO+H///////////////////gAA/wAAAABwAAAD////////A///gAAAAAAADeAP4H//////////////////+AAB/AAAAAGAAAABf///////z///wAAAAAAAPvAPj////////////////////yAB/AAAABQAAAABf///////x///+AAAAAAAPfh//////////////////////+AA8AAAAAAAAAAAP///////9///8AAAAAAAfPz///////////////////////AA4AAAMAAAAAAAD///////////8AAAAAAAMf3//////////////////////7AAwAAAAAAAAAAAH///////////sAAAAAAAA+///////////////////////7ABgAAAAAAAAAAAB/////////+cPgAAAAAAAH///////////////////////7gAAAAAAAAAAAAAAf/////////wfgAAAAAAAf///////////////////////yAAAAAAAAAAAAAAAf/////////g/wAAAAAAAP///////////////////////iAAAAAAAAAAAAAAAP//////////AgAAAAAAAD//////v////////////////nAAAAAAAAAAAAAAAP//////////AAAAAAAAAB/////H/////////////////GDAAAAAAAAAAAAAAP////////+4AAAAAAAAAD//n/+Gf///////////////+HUAAAAAAAAAAAAAAf////////4gAAAAAAAAH//z3/+AH///////////////8H4AAAAAAAAAAAAAAf////////gAAAAAAAAAH/8P4/8AB///////////////QPAAAAAAAAAAAAAAAP////////wAAAAAAAAAH/4M+f+fh//////////////8AMAAAAAAAAAAAAAAAf///////+AAAAAAAAAAH/gMP/v///////////////v8AMAAAAAAAAAAAAAAAP///////8AAAAAAAAAAP/IMCfP///////////////dwAMAAAAAAAAAAAAAAAP///////4AAAAAAAIAAP/AAGHv//////////////8B4AcAAAAAAAAAAAAAAAH///////4AAAAAAACAAH+AE4OP//////////////+48C4AAAAAAAAAAAAAAAD///////wAAAAAAAAAAB8/+IAD///////////////w8T4AAAAAAAAAAAAAAAD///////4AAAAAAAAAAAr/+AB4E//////////////A8/4AAAAAAAAAAAAAAAB///////gAAAAAAAAAAB///AAAN//////////////g1/gAAAAAAAAAAAAAAAAf/////+AAAAAAAAAAAH//+AAAB//////////////gn8AAAAAAAAAAAAAAAAAP/////8AAAAAAAAAAAP///8OAB//////////////wLgAAAAAAAAAAAAAAAAAH/////4AAAAAAAAAAAP///8P8z//////////////wDAAAAAAAAAAAAAAAAAADf////4AAAAAAAAAAAP/////////////////////4AAAAAAAAAAAAAAAAAAAD////i4AAAAAAAAAAAf/////////v///////////wAAAAAAAAAAAAAAAAAAADv//gAcAAAAAAAAAAw//////////n///////////wAAAAAAAAAAAAAAAAAAAB3/+AAcAAAAAAAAAAD//////////z///////////gAAAAAAAAAAAAAAAAAAAAb/+AAMAAAAAAAAAAH///////8//x3//////////AYAAAAAAAAAAAAAAAAAAAL/+AAOAAAAAAAAAAH///////+//8f//////////AAAAAAAAAAAAAAAAAAAAAM/+AABwAAAAAAAAAP////////f/84Af///////+wAAAAAAAAAAAAAAAAAAAAGf+AAAgAAAAAAAAAP////////P//+AP///////8wAAAAAAAAAAAAAAAAAAAAAP8AB/MAAAAAAAAAf////////n///AH///////ggAAAAAAAAAAAAAAAAAAAAAP+A8TwgAAAAAAAAf////////n///AH///P//+AAAAAAAAAAAAAABAAAAAAAAP+B4B8AAAAAAAAAf////////3//+AC//4P/+IAAAAAAAAAAAAAAAgAAAAAAAP/B4CD4AAAAAAAAf////////x//8AA//wH/84AAAAAAAAAAAAAAAAAAAAAAAD//4Bz9gAAAAAAAP////////5//4AAf/gH/84A4AAAAAAAAAAAAAAAAAAAAAA//wAgAQAAAAAAAP////////4//wAAf/AD/+AA4AAAAAAAAAAAAAAAAAAAAAAP/wAAACAAAAABAf////////4//AAAf+AD//AA4AAAAAAAAAAAAAAAAAAAAAABP/AAAAAAAAAAgf////////8/8AAAf4AAf/gAwAAAAAAAAAAAAAAAAAAAAAAAH/gAAAAAAAAAA//////////fwAAAPwAAP/gA4AAAAAAAAAAAAAAAAAAAAAAAA/gAACAAAAAAAf//////////AAAAP4AAP/wA+AAAAAAAAAAAAAAAAAAAAAAAAPgAgAAAAAAAAf/////////4AAAAHwAIN/wAXAAAAAAAAAAAAAAAAAAAAAAAAHgD8AAAAAAAAf/////////w8AAAHwAIMfgAPAAAAAAAAAAAAAAAAAAAAAAAADgP/eAAAAAAAH//////////4AAADwAAMfABNAAAAAAAAAAAAAAAAAAAAAAAADzPf+AAAAAAAD//////////4AAADoAAMGACPAAAAAAAAAAAAAAAAAAAAAAAAA9///gAAAAAAB//////////4AAADcAAOEAEHgAAAAAAAAAAAAAAAAAAAAAAAAN///wAAAAAAB//////////wAAAAMAAGAAEPgAAAAAAAAAAAAAAAAAAAAAAAAA///4AAAAAAA//////////gAAAAMAADAAMDgAAAAAAAAAAAAAAAAAAAAAAAAA////gAAAAAAP/B///////gAAAAAABjgAfhAAAAAAAAAAAAAAAAAAAAAAAAAA////4AAAAAAHAB///////AAAAAAABzwA8AgAAAAAAAAAAAAAAAAAAAAAAAAA////4AAAAAAAAAP//////AAAAAAAA9yh8AAAAAAAAAAAAAAAAAAAAAAAAAAB////8AAAAAAAAAD/////+AAAAAAABfwH8AYAAAAAAAAAAAAAAAAAAAAAAAAB////8AAAAAAAAAH/////4AAAAAAAAXwf+CYAAAAAAAAAAAAAAAAAAAAAAAAD////+AAAAAAAAAn/////wAAAAAAAAX4/8+QAAAAAAAAAAAAAAAAAAAAAADAH/////gAAAAAAAAP/////gAAAAAAAAD4f9cZ0AAAAAAAAAAAAAAAAAAAAAAAH/////8AAAAAAAAH/////AAAAAAAAAP8P57DzgAAAAAAAAAAAAAAAAAAAAAAH//////AAAAAAAAH////+AAAAAAAAAF/P5wA78AgAAAAAAAAAAAAAAAAAAAAH//////8AAAAAAAD////8AAAAAAAAAB8D54+//AQAAAAAAAAAAAAAAAAAAAAP//////+AAAAAAAB////8AAAAAAAAAA8AB4AH/wYAAAAAAAAAAAAAAAAAAAAH///////gAAAAAAA////4AAAAAAAAAAMABoAp/7yAAAAAAAAAAAAAAAAAAAAH///////gAAAAAAA////8AAAAAAAAAAHsAAAI/9hAAAAAAAAAAAAAAAAAAAAD///////gAAAAAAAf///8AAAAAAAAAAD/gAhA/8A4AAAAAAAAAAAAAAAAAAAB///////gAAAAAAAf///8AAAAAAAAAAAH+/gBvOASAAAAAAAAAAAAAAAAAAAB///////gAAAAAAAf///8AAAAAAAAAAAABnAACHoHAAAAAAAAAAAAAAAAAAAA///////AAAAAAAAf///+AAAAAAAAAAAAAkAAABgBgAAAAAAAAAAAAAAAAAAA//////+AAAAAAAAP///+QAAAAAAAAAAAAADwCAAAAAAAAAAAAAAAAAAAAAAAf/////8AAAAAAAAf///+AQAAAAAAAAAAAAD+HAAAAAAAQAAAAAAAAAAAAAAAf/////4AAAAAAAA////+AwAAAAAAAAAAAAD8HAAAAAAAAAAAAAAAAAAAAAAAP/////4AAAAAAAA////+BwAAAAAAAAAAAB3+HgAAAAAAAAAAAAAAAAAAAAAAH/////4AAAAAAAA////+D4AAAAAAAAAAAD/+HwAACAAAAAAAAAAAAAAAAAAAD/////4AAAAAAAB////8PwAAAAAAAAAAAH//nwAAAgDAAAAAgEAAAAAAAAAAA/////4AAAAAAAB////wPwAAAAAAAAAAAP///wAAAAGAAAAAAAAAAAAAAAAAAf////4AAAAAAAA////gPwAAAAAAAAAAAf///4AAAQAAAAAAAAAAAAAAAAAAAf////4AAAAAAAA////APgAAAAAAAAAAA////8AAAAAAAAAAAAAAAAAAAAAAAP////wAAAAAAAAf//+APgEAAAAAAAAAP////+AAJAAAAAIAAAAAAAAAAAAAAP////gAAAAAAAAf///AfgQAAAAAAAAAf/////AAGAAAAAAAAAAAAAAAAAAAAf////gAAAAAAAAP///AfAAAAAAAAAAB//////gACAAAAAAAAAAAAAAAAAAAAf///8AAAAAAAAAP///AfAAAAAAAAAAB//////wAAAAAAAAAAAAAAAAAAAAAAf///gAAAAAAAAAP///AfAAAAAAAAAAB//////8AAAAAAAAAAAAAAAAAAAAAAf///AAAAAAAAAAH//8AMAAAAAAAAAAA//////4AAAAAAAAAAAAAAAAAAAAAAf///AAAAAAAAAAH//4AAAAAAAAAAAAB//////4AAAAAAAAAAAAAAAAAAAAAAf///AAAAAAAAAAH//4AAAAAAAAAAAAA//////8AAAAAAAAAAAAAAAAAAAAAA////AAAAAAAAAAD//4AAAAAAAAAAAAA//////8AAAAAAAAAAAAAAAAAAAAAA///+AAAAAAAAAAB//wAAAAAAAAAAAAAf/////8AAAAAAAAAAAAAAAAAAAAAA///8AAAAAAAAAAB//gAAAAAAAAAAAAAf/////4AAAAAAAAAAAAAAAAAAAAAA///4AAAAAAAAAAA//AAAAAAAAAAAAAAf/////4AAAAAAAAAAAAAAAAAAAAAA///wAAAAAAAAAAA/+AAAAAAAAAAAAAAf/wf//4AAAAAAAAAAAAAAAAAAAAEA///wAAAAAAAAAAA/8AAAAAAAAAAAAAAf8AP//wAAAAAAAAAAAAAAAAAAAAAA///AAAAAAAAAAAAcAAAAAAAAAAAAAAAfAAH//gAAAAAAAAAAAAAAAAAAAAAB//4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//gAABgAAAAAAAAAAAAAAAAAB//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/AAAAwAAAAAAAAAAAAAAAAAD//4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/AAAA+AAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAAA+AAAAAAAAAAAAAAAAAD/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAAAAD/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAYAAAAAAAAAAAAAAAAAD/gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+AAAHwAAAAAAAAAAAAAAAAAD/4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAHAEAAAAAAAAAAAAAAAAH/gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAeAEAAAAAAAAAAAAAAAAH/gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAAAAAH+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAAAAAH+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAAAAAP/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH+AAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH4AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAAAAAAAAAAAAAAAAAv4AAAAA///vwHj/4AAAAAAAAAAAAAAAAAAAAAAAAHgAAAAAAAAAAAAAAAAAH///EAH//////////4AAAAAAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAAGD////8A////////////+AAAAAAAAAAAAAAAAAAAAAI/8AAAAAAAAAAAAGAAH3////8P/////////////8AAAAAAAAAAAAAAAAAAAAAf8AAAAAAAABAD//nn//////4///////////////+AAAAAAAAAAAAAAAEAAAP/+AAAAAAAAf////////////7////////////////4AAAAAAAAAAAAACfCQBg7/AAAAAAAB//////////////////////////////wAAAAAAAAABkAAD///3v//AAAAAAAP/////////////////////////////+AAAAAAAAEcD//sA//////+AAAAAAA//////////////////////////////4AAAAAAAA/////////////wAAAAAA///////////////////////////////gAAAAAAB7////////////8AAAAAB////////////////////////////////gAAAAAD/////////////+AAAAAAf////////////////////////////////6AAAAAA/////////////AOAAD8B//////////////////////////////////AAAAD8D////////////w4AAH+AH///////////////////////////////+AAAAAAAA////////////4AAB/8A////////////////////////////////+AAAAAAB///////////////gAAB//////////////////////////////////gAAAAAAP//////////////4H////////////////////////////////////+AAAAA////////////////////////////////////////////////////////A//AP////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////"),bits=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)bits[i]=bin.charCodeAt(i);
+  const land=(lat,lon)=>{const y=Math.min(179,Math.floor(90-lat)),x=Math.min(359,Math.floor(lon+180)),k=y*360+x;return bits[k>>3]&(128>>(k&7))};
+  const N=isPhone?9000:16000,pos=[],col=[],cA=new T.Color(0x3b4fd8),cB=new T.Color(0x4fc1c6),tmp=new T.Color();
+  for(let i=0;i<N;i++){const y=1-2*(i+.5)/N,lat=Math.asin(y)*180/Math.PI,lon=((i*137.50776)%360)-180;
+    if(!land(lat,lon))continue;const v=ll(lat,lon,R*1.002);pos.push(v.x,v.y,v.z);tmp.copy(cA).lerp(cB,(lat+60)/140);col.push(tmp.r,tmp.g,tmp.b)}
+  const dg=new T.BufferGeometry();dg.setAttribute("position",new T.Float32BufferAttribute(pos,3));dg.setAttribute("color",new T.Float32BufferAttribute(col,3));
+  G.add(new T.Points(dg,new T.PointsMaterial({size:isPhone?.017:.013,vertexColors:true,transparent:true,opacity:.95})));
+  /* places, markers and labels */
+  const P={ggn:{n:"Gurugram",lat:28.46,lon:77.03,c:"#4fc1c6"},noi:{n:"Noida",lat:28.54,lon:77.39,c:"#f7e463",below:1},dxb:{n:"Dubai",lat:25.2,lon:55.27,c:"#8b97ff"},
+    lon:{n:"London",lat:51.5,lon:-.13,c:"#e8452c"},sin:{n:"Singapore",lat:1.35,lon:103.82,c:"#e8452c"},nyc:{n:"New York",lat:40.71,lon:-74,c:"#e8452c"}};
+  const rings=[];
+  for(const k in P){const p=P[k],v=ll(p.lat,p.lon,R*1.004),c=new T.Color(p.c);
+    const dot=new T.Mesh(new T.SphereGeometry(.022,16,16),new T.MeshBasicMaterial({color:c}));dot.position.copy(v);G.add(dot);
+    const ring=new T.Mesh(new T.RingGeometry(.03,.042,40),new T.MeshBasicMaterial({color:c,transparent:true,side:T.DoubleSide}));
+    ring.position.copy(v);ring.lookAt(v.clone().multiplyScalar(2));G.add(ring);rings.push(ring);
+    const el=document.createElement("div");el.className="gl";el.style.setProperty("--c",p.c);el.textContent=p.n;host.appendChild(el);p.el=el;p.v=v}
+  /* arcs with travelling comets */
+  const arcs=[["ggn","dxb","#8b97ff"],["noi","ggn","#f7e463"],["ggn","lon","#e8452c"],["ggn","sin","#e8452c"],["ggn","nyc","#e8452c"]].map(([a,b,c])=>{
+    const A=P[a].v,B=P[b].v,d=A.distanceTo(B),mid=A.clone().add(B).multiplyScalar(.5).normalize().multiplyScalar(R+Math.max(.05,d*.38));
+    const curve=new T.QuadraticBezierCurve3(A,mid,B),pts=curve.getPoints(80);
+    const line=new T.Line(new T.BufferGeometry().setFromPoints(pts),new T.LineBasicMaterial({color:c,transparent:true,opacity:.55}));G.add(line);
+    const comet=new T.Mesh(new T.SphereGeometry(.016,12,12),new T.MeshBasicMaterial({color:c}));G.add(comet);
+    return{curve,comet,off:Math.random()}});
+  /* rotation: auto spin, drag, fly-to */
+  let ry=-1.6,rx=.35,ty=ry,tx=rx,drag=null,hold=false,boost=0;
+  const face=k=>{const p=P[k],v=ll(p.lat,p.lon),r=Math.atan2(-v.x,v.z);let t=r;while(t-ry>Math.PI)t-=2*Math.PI;while(ry-t>Math.PI)t+=2*Math.PI;ty=t;tx=p.lat*Math.PI/180*.8};
+  host.addEventListener("pointerdown",e=>{drag={x:e.clientX,y:e.clientY,ty,tx};host.setPointerCapture(e.pointerId)});
+  host.addEventListener("pointermove",e=>{if(!drag)return;ty=drag.ty+(e.clientX-drag.x)*.008;tx=Math.max(-1,Math.min(1,drag.tx+(e.clientY-drag.y)*.006))});
+  host.addEventListener("pointerup",()=>drag=null);host.addEventListener("pointercancel",()=>drag=null);
+  host.addEventListener("pointerenter",()=>hold=true);host.addEventListener("pointerleave",()=>{hold=false;drag=null});
+  const sel=k=>{$$("#places li").forEach(li=>li.classList.toggle("on",li.dataset.p===k));for(const q in P)P[q].el.classList.toggle("on",k==="rem"?["lon","sin","nyc"].includes(q):q===k);face(k==="rem"?"lon":k)};
+  onHover($("#places"),"li",li=>sel(li.dataset.p),90);
+  const size=()=>{const w=host.clientWidth,h=host.clientHeight;ren.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()};
+  new ResizeObserver(size).observe(host);size();
+  const v3=new T.Vector3(),camDir=new T.Vector3();
+  const frame=t=>{const s=t/1000;
+    if(!drag&&!hold&&!still)ty+=.0016+boost;boost*=.92;
+    ry+=(ty-ry)*.07;rx+=(tx-rx)*.07;G.rotation.set(rx,ry,0);
+    rings.forEach((r,i)=>{const k=((s*.6+i*.17)%1);r.scale.setScalar(1+k*2.2);r.material.opacity=(1-k)*.9});
+    arcs.forEach(a=>{const k=(s*.25+a.off)%1;a.comet.position.copy(a.curve.getPoint(k))});
+    ren.render(scene,cam);
+    const w=host.clientWidth,h=host.clientHeight;camDir.copy(cam.position).normalize();
+    for(const k in P){const p=P[k];v3.copy(p.v).applyEuler(G.rotation);const front=v3.dot(camDir)>.15;
+      v3.project(cam);p.el.style.opacity=front?1:0;p.el.style.transform=`translate(${(v3.x*.5+.5)*w}px,${(-v3.y*.5+.5)*h}px) translate(-50%,${p.below?'60%':'-150%'})`}};
+  const kick=loopWhenVisible(host,frame);
+  sel("ggn");ry=ty;rx=tx;kick();
+  window.__globeBoost=v=>{boost=v};
+}catch(err){console.warn("globe off",err)}}
+
+/* ---------- 3D AI sphere ---------- */
+if(glOK){try{
+  const host=$("#brain"),ren=mkRenderer(host),scene=new T.Scene(),cam=new T.PerspectiveCamera(40,1.4,.1,50);cam.position.z=3.4;
+  const G=new T.Group();scene.add(G);
+  const n=isPhone?220:360,pts=[];for(let i=0;i<n;i++){const y=1-2*(i+.5)/n,r=Math.sqrt(1-y*y),a=i*2.39996;pts.push(new T.Vector3(Math.cos(a)*r,y,Math.sin(a)*r).multiplyScalar(1+(Math.random()-.5)*.08))}
+  const pal=[0x4fc1c6,0x8b97ff,0xf7e463],cols=[];pts.forEach((p,i)=>{const c=new T.Color(pal[i%3]);cols.push(c.r,c.g,c.b)});
+  const pg=new T.BufferGeometry().setFromPoints(pts);pg.setAttribute("color",new T.Float32BufferAttribute(cols,3));
+  G.add(new T.Points(pg,new T.PointsMaterial({size:.05,vertexColors:true,transparent:true,opacity:.95})));
+  const edges=[];pts.forEach((p,i)=>{pts.map((q,j)=>[j,p.distanceToSquared(q)]).filter(x=>x[0]>i).sort((a,b)=>a[1]-b[1]).slice(0,3).forEach(([j])=>edges.push([i,j]))});
+  const ep=[];edges.forEach(([a,b])=>ep.push(pts[a],pts[b]));
+  G.add(new T.LineSegments(new T.BufferGeometry().setFromPoints(ep),new T.LineBasicMaterial({color:0x8b97ff,transparent:true,opacity:.22})));
+  const S=isPhone?18:34,sig=new Float32Array(S*3),sg=new T.BufferGeometry();sg.setAttribute("position",new T.BufferAttribute(sig,3));
+  const smat=new T.PointsMaterial({size:.11,color:0x8b97ff,transparent:true,opacity:1,blending:T.AdditiveBlending,depthWrite:false});G.add(new T.Points(sg,smat));
+  const run=Array.from({length:S},()=>({e:edges[Math.random()*edges.length|0],k:Math.random(),sp:.008+Math.random()*.014}));
+  let mx=0,my=0;const sec=$("#ai");
+  sec.addEventListener("pointermove",e=>{const r=sec.getBoundingClientRect();mx=(e.clientX-r.left)/r.width-.5;my=(e.clientY-r.top)/r.height-.5});
+  window.__brainTint=hex=>{smat.color.set(hex)};
+  const size=()=>{const w=host.clientWidth,h=host.clientHeight;ren.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()};
+  new ResizeObserver(size).observe(host);size();
+  const frame=t=>{const s=t/1000;G.rotation.y=(still?0:s*.18)+mx*1.2;G.rotation.x=.3+my*.8;
+    run.forEach((r,i)=>{if(!still)r.k+=r.sp;if(r.k>=1){r.k=0;const end=r.e[1],next=edges.filter(e=>e[0]===end||e[1]===end);r.e=next.length?next[Math.random()*next.length|0]:edges[Math.random()*edges.length|0];if(r.e[1]===end)r.e=[r.e[1],r.e[0]]}
+      const a=pts[r.e[0]],b=pts[r.e[1]];sig[i*3]=a.x+(b.x-a.x)*r.k;sig[i*3+1]=a.y+(b.y-a.y)*r.k;sig[i*3+2]=a.z+(b.z-a.z)*r.k});
+    sg.attributes.position.needsUpdate=true;ren.render(scene,cam)};
+  loopWhenVisible(host,frame)();
+}catch(err){console.warn("brain off",err)}}
+if(!glOK){const b=$("#brain");if(b)b.remove()}
+
+/* ---------- Motion: entrances and scroll ---------- */
+const M=window.Motion;
+if(M&&!still){
+  const ease=[.22,1,.36,1];
+  const enter=(els,opts={})=>{if(!els.length)return;const an=M.animate(els,{opacity:[0,1],y:[opts.y||28,0],scale:[opts.s||1,1]},{duration:.75,delay:M.stagger(opts.st||.07),ease});
+    Promise.resolve(an).then(()=>els.forEach(e=>{e.style.transform="";e.style.opacity=""})).catch(()=>els.forEach(e=>{e.style.opacity=""}))};
+  /* hero on load */
+  enter([...$$(".me .ava")],{s:.7,y:0});
+  enter([...$$(".hero .loc,.hero h1,.hero .role,.hero .intro,.hero .cta,.hero .facts>div")],{st:.06});
+  enter([$("#agent")],{y:50,s:.96});
+  /* sections as they scroll in */
+  const groups=[".head",".about>*",".how li",".caps .cap",".graph",".map",".doc",".side",".gt",".places li",".cards .card",".tl>.job",".mini .job",".skills .sk",".certs li",".eduw .edu","footer .wrap>*"];
+  const vh=innerHeight;
+  groups.forEach(sel=>{const all=[...$$(sel)].filter(e=>e.getBoundingClientRect().top>vh*.92);if(!all.length)return;
+    all.forEach(e=>e.style.opacity=0);
+    const parents=[...new Set(all.map(e=>e.parentElement))];
+    parents.forEach(par=>{const els=all.filter(e=>e.parentElement===par);M.inView(par,()=>{enter(els,{y:34})},{amount:.12})})});
+  /* scroll boosts the globe spin and moves the photo ring */
+  let lastY=scrollY;addEventListener("scroll",()=>{const d=scrollY-lastY;lastY=scrollY;window.__globeBoost&&window.__globeBoost(Math.max(-.03,Math.min(.03,d*.0006)))},{passive:true});
 }
 
 /* ---------- rotating role ---------- */
